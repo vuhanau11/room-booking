@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import Search from './Search';
-import RightNavbar from './RightNavbar';
-import '../styles/Navbar.css';
-import { Drawer, Button } from 'antd';
+import { Menu, Drawer, Button } from 'antd';
 import { Link } from 'react-router-dom';
+
+import '../styles/Navbar.css';
+import Search from './Search';
 import logo from '../assets/logo.png';
+import logo1 from '../assets/logo1.jpg';
 
 export default function Navbar() {
   const [visible, setVisible] = useState(false);
@@ -23,23 +24,54 @@ export default function Navbar() {
           <img src={logo} alt="logo" />
         </Link>
       </div>
-      <div className="menuCon">
+      <div className="subMenu">
         <div className="search">
           <Search />
         </div>
         <div className="rightMenu">
-          <RightNavbar />
+          <Menu mode="horizontal">
+            <Menu.Item>
+              <Link to="/register" className="register">
+                Đăng ký
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/login" className="login">
+                Đăng nhập
+              </Link>
+            </Menu.Item>
+          </Menu>
         </div>
-        <Button className="barsMenu" type="primary" onClick={showDrawer}>
+        <Button className="barsMenu" onClick={showDrawer}>
           <span className="barsBtn"></span>
         </Button>
         <Drawer
+          title={
+            <Link to="/" onClick={onClose}>
+              <img
+                src={logo1}
+                alt="logo"
+                style={{ width: '150px', height: '80px' }}
+              />
+            </Link>
+          }
           placement="left"
-          closable={false}
+          closable={true}
           onClose={onClose}
           visible={visible}
         >
-          <RightNavbar />
+          <Menu mode="vertical">
+            <Menu.Item>
+              <Link to="/register" className="register" onClick={onClose}>
+                Đăng ký
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/login" className="login" onClick={onClose}>
+                Đăng nhập
+              </Link>
+            </Menu.Item>
+          </Menu>
         </Drawer>
       </div>
     </nav>

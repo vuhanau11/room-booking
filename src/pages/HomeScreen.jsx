@@ -1,8 +1,10 @@
 import React from 'react';
+import '../styles/HomeScreen.css';
+import Footer from '../components/Footer';
 
 export default function HomeScreen() {
   return (
-    <div>
+    <main>
       <p>Home</p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
       voluptatum soluta dolor adipisci voluptas, reiciendis, sed nobis tempore
@@ -136,172 +138,8 @@ export default function HomeScreen() {
       modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
       amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
       adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque! Lorem ipsum dolor sit
-      amet consectetur adipisicing elit. Necessitatibus voluptatum soluta dolor
-      adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
-      modi. Tempore unde id soluta explicabo nihil itaque!
-    </div>
+      modi.
+      <Footer />
+    </main>
   );
 }

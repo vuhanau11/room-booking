@@ -1,12 +1,15 @@
 import React from 'react';
-import './App.css';
 import { Route, Switch } from 'react-router-dom';
+
+import 'font-awesome/css/font-awesome.css';
+import './App.css';
+
 import HomeScreen from './pages/HomeScreen';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Rooms from './pages/Rooms';
 import RoomDetail from './pages/RoomDetail';
-// import PageNotFound from './pages/PageNotFound';
+import PageNotFound from './pages/PageNotFound';
 import Navbar from './components/Navbar';
 
 function App() {
@@ -19,7 +22,7 @@ function App() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/rooms" component={Rooms} />
         <Route exact path="/rooms/:slug" component={RoomDetail} />
-        {/* <Route path="*" component={PageNotFound} /> */}
+        <Route path="*" component={PageNotFound} />
       </Switch>
     </div>
   );

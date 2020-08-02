@@ -1,0 +1,50 @@
+button {
+  cursor: pointer;
+}
+.title {
+  margin-right: 60px;
+}
+.increment {
+  float: right;
+}
+.search {
+  float: left;
+}
+.group {
+  max-width: 500px;
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.disabled {
+  cursor: not-allowed;
+}
+.guest {
+  overflow-x: hidden;
+}
+@media (max-width: 767px) {
+  .group {
+    max-width: 250px;
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .datepicker,
+  .guest {
+    display: none !important;
+  }
+  .search {
+    width: 100% !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1240px) {
+  .group {
+    max-width: 500px;
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
