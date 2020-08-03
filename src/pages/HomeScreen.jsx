@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 export default function HomeScreen() {
   return (
-    <main>
+    <div className="content">
       <p>Home</p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
       voluptatum soluta dolor adipisci voluptas, reiciendis, sed nobis tempore
@@ -140,6 +140,6 @@ export default function HomeScreen() {
       adipisci voluptas, reiciendis, sed nobis tempore ullam, eaque omnis fugit
       modi.
       <Footer />
-    </main>
+    </div>
   );
 }

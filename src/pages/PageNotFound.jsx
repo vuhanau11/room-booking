@@ -3,8 +3,8 @@ import '../styles/NotFound.css';
 
 export default function PageNotFound() {
   return (
-    <main>
+    <div className="content">
       <p>404</p>
-    </main>
+    </div>
   );
 }

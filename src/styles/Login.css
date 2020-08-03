@@ -1,4 +1,118 @@
-main {
-  top: 90px;
+.regisMain {
   position: relative;
+  top: 70px;
+}
+.regisBanner {
+  background: linear-gradient(90deg, #f65e38 0, #f68a39 51%, #f65e38);
+  height: 170px;
+  position: relative;
+}
+h1 {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.bannerContent {
+  font-size: 1.125rem;
+}
+.text {
+  color: #fff;
+  text-align: left;
+  position: absolute;
+  left: 23%;
+  top: 50%;
+  transform: translate(-25%, 40%);
+}
+.regisContent {
+  padding: 0 2.8rem;
+}
+.media {
+  margin-top: 3rem;
+}
+.media h3 {
+  font-weight: 900;
+  margin: 1.5rem 0 0.875rem;
+  font-size: 1.125rem;
+}
+.colRegis {
+  text-align: left;
+  padding: 0 10px;
+}
+p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.account {
+  background: #fff;
+  padding: 2rem;
+  width: 100%;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.02),
+    0 24px 38px 3px rgba(0, 0, 0, 0.04), 0 11px 15px -7px rgba(0, 0, 0, 0.05);
+  border-radius: 0.625rem;
+  text-align: left;
+  position: relative;
+  top: -20%;
+}
+.account .title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+}
+.input-group {
+  margin-bottom: 1rem;
+}
+.input-group-label {
+  font-weight: 700;
+}
+.login-form > * {
+  margin-top: 2rem;
+}
+.login-form .input {
+  border-radius: 3rem;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.3s;
+  height: 3rem;
+  font-size: 14px;
+}
+.login-form-button {
+  border: none;
+  margin-top: 0.5rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 170%;
+  color: #fff;
+  background-image: linear-gradient(90deg, #f65e38 0, #f68a39 51%, #f65e38);
+  box-shadow: 0 4px 12px 0 rgba(246, 116, 57, 0.4);
+  border-radius: 3rem;
+  background-size: 200% auto;
+  font-weight: 700;
+}
+.login-form-button:hover,
+.login-form-button:active,
+.login-form-button:focus {
+  color: #fff;
+  background-position: 100%;
+  background-image: linear-gradient(90deg, #f65e38 0, #f68a39 51%, #f65e38);
+}
+.center-xs {
+  text-align: center;
+  margin-top: 3rem;
+}
+.center-xs .link {
+  color: #f65e39;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+.center-xs .link:hover {
+  color: #222;
+}
+.center-xs span {
+  color: #222;
+  font-size: 15px;
+}
+@media (max-width: 767px) {
 }

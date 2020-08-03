@@ -6,7 +6,6 @@
   overflow: hidden;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 30px #f3f1f1;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -83,6 +82,11 @@
 }
 .ant-menu-horizontal > .ant-menu-item-selected a {
   color: #576173;
+}
+.register,
+.login {
+  color: black;
+  font-weight: 600;
 }
 .register:hover {
   color: #f6623b !important;
