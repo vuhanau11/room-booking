@@ -1,4 +1,4 @@
-.resAccount {
+.regisAccount {
   background: #fff;
   padding: 2rem;
   width: 100%;
@@ -7,14 +7,14 @@
   border-radius: 0.625rem;
   text-align: left;
   position: relative;
-  top: -13%;
+  top: -12%;
 }
-.resAccount .title {
+.regisAccount .title {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   font-weight: 900;
 }
-.resAccount label {
+.regisAccount label {
   font-weight: 700;
   color: black;
 }
@@ -23,9 +23,6 @@
 }
 .input-group-label {
   font-weight: 700;
-}
-.regis-form > * {
-  margin-top: 2rem;
 }
 .regis-form .input {
   border-radius: 3rem;
@@ -72,4 +69,13 @@
 .center-xs span {
   color: #222;
   font-size: 15px;
+}
+@media (max-width: 767px) {
+  .regisAccount {
+    padding: 2rem;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    top: -106%;
+  }
 }

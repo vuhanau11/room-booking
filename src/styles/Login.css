@@ -1,49 +1,4 @@
-.regisMain {
-  position: relative;
-  top: 70px;
-}
-.regisBanner {
-  background: linear-gradient(90deg, #f65e38 0, #f68a39 51%, #f65e38);
-  height: 170px;
-  position: relative;
-}
-h1 {
-  font-weight: 900;
-  font-size: 1.5rem;
-  color: #fff;
-}
-.bannerContent {
-  font-size: 1.125rem;
-}
-.text {
-  color: #fff;
-  text-align: left;
-  position: absolute;
-  left: 23%;
-  top: 50%;
-  transform: translate(-25%, 40%);
-}
-.regisContent {
-  padding: 0 2.8rem;
-}
-.media {
-  margin-top: 3rem;
-}
-.media h3 {
-  font-weight: 900;
-  margin: 1.5rem 0 0.875rem;
-  font-size: 1.125rem;
-}
-.colRegis {
-  text-align: left;
-  padding: 0 10px;
-}
-p {
-  margin: 0;
-  font-size: 1rem;
-}
-
-.account {
+.loginAccount {
   background: #fff;
   padding: 2rem;
   width: 100%;
@@ -54,7 +9,7 @@ p {
   position: relative;
   top: -20%;
 }
-.account .title {
+.loginAccount .title {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   font-weight: 900;
@@ -115,4 +70,11 @@ p {
   font-size: 15px;
 }
 @media (max-width: 767px) {
+  .loginAccount {
+    padding: 2rem;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    top: -180%;
+  }
 }

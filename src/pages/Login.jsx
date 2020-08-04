@@ -1,9 +1,12 @@
 import React from 'react';
 import '../styles/Login.css';
+import '../styles/RegisScreen.css';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { Form, Input, Button } from 'antd';
+import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import { Row, Col } from 'antd';
+
 import coin from '../assets/coin.jpg';
 import top from '../assets/top.jpg';
 import money from '../assets/money.jpg';
@@ -33,7 +36,7 @@ export default function Login() {
         </div>
         <div className="regisContent">
           <Row>
-            <Col md={16} xs={24}>
+            <Col md={16} xs={24} className="core-values-login">
               <Row>
                 <Col className="colRegis" md={12} xs={24}>
                   <div className="media">
@@ -81,7 +84,7 @@ export default function Login() {
               </Row>
             </Col>
             <Col md={8} xs={24}>
-              <div className="account">
+              <div className="loginAccount">
                 <h3 className="title">Đăng nhập</h3>
                 <div className="input-group">
                   <label className="input-group-label">
@@ -97,6 +100,10 @@ export default function Login() {
                     name="email"
                     rules={[
                       {
+                        type: 'email',
+                        message: 'You need to enter a valid Email',
+                      },
+                      {
                         required: true,
                         message: 'Vui lòng nhập Email!',
                       },
@@ -104,7 +111,7 @@ export default function Login() {
                   >
                     <Input
                       className="input"
-                      prefix={<i className="fa fa-envelope"></i>}
+                      prefix={<MailOutlined />}
                       placeholder="Địa chỉ email"
                     />
                   </Form.Item>
@@ -119,7 +126,7 @@ export default function Login() {
                   >
                     <Input
                       className="input"
-                      prefix={<i className="fa fa-lock"></i>}
+                      prefix={<LockOutlined />}
                       type="password"
                       placeholder="Mật khẩu"
                     />

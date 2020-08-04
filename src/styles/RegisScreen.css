@@ -1,0 +1,76 @@
+.regisMain {
+  position: relative;
+  top: 70px;
+}
+.regisBanner {
+  background: linear-gradient(90deg, #f65e38 0, #f68a39 51%, #f65e38);
+  height: 170px;
+  position: relative;
+}
+h1 {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.bannerContent {
+  font-size: 1.125rem;
+}
+.text {
+  color: #fff;
+  text-align: left;
+  position: absolute;
+  left: 23%;
+  top: 50%;
+  transform: translate(-25%, 40%);
+}
+.regisContent {
+  padding: 0 2.8rem;
+}
+.media {
+  margin-top: 3rem;
+}
+.media h3 {
+  font-weight: 900;
+  margin: 1.5rem 0 0.875rem;
+  font-size: 1.125rem;
+}
+.colRegis {
+  text-align: left;
+  padding: 0 10px;
+}
+p {
+  margin: 0;
+  font-size: 1rem;
+}
+@media (max-width: 767px) {
+  .regisBanner {
+    height: 15rem;
+  }
+  .regisContent {
+    padding: 0 1rem;
+  }
+  .text {
+    color: #fff;
+    text-align: left;
+    width: 95%;
+    position: absolute;
+    left: 28%;
+    transform: translate(-25%, 30%);
+  }
+  h1 {
+    font-weight: 900;
+    font-size: 1.25rem;
+    color: #fff;
+  }
+  .bannerContent {
+    font-size: 0.95rem;
+  }
+  .core-values-login {
+    position: relative;
+    top: 35rem;
+  }
+  .core-values-regis {
+    position: relative;
+    top: 60rem;
+  }
+}

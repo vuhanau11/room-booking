@@ -1,7 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
-import 'font-awesome/css/font-awesome.css';
 import './App.css';
 
 import HomeScreen from './pages/HomeScreen';

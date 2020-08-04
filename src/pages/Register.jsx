@@ -1,15 +1,26 @@
 import React from 'react';
 import '../styles/Register.css';
+import '../styles/RegisScreen.css';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { Form, Input, Button } from 'antd';
 import { Row, Col } from 'antd';
+import { MailOutlined, LockOutlined } from '@ant-design/icons';
+
 import coin from '../assets/coin.jpg';
 import top from '../assets/top.jpg';
 import money from '../assets/money.jpg';
 import bag from '../assets/bag.jpg';
 
 export default function Register() {
+  const layout = {
+    labelCol: {
+      span: 24,
+    },
+    wrapperCol: {
+      span: 24,
+    },
+  };
   const onSubmit = (values) => {
     console.log('Received values of form: ', values);
   };
@@ -33,7 +44,7 @@ export default function Register() {
         </div>
         <div className="regisContent">
           <Row>
-            <Col md={16} xs={24}>
+            <Col md={16} xs={24} className="core-values-regis">
               <Row>
                 <Col className="colRegis" md={12} xs={24}>
                   <div className="media">
@@ -81,40 +92,45 @@ export default function Register() {
               </Row>
             </Col>
             <Col md={8} xs={24}>
-              <div className="resAccount">
+              <div className="regisAccount">
                 <h3 className="title">Đăng ký thành viên</h3>
                 <Form
-                  name="normal_login"
+                  {...layout}
+                  name="normal_register"
                   className="regis-form"
                   onFinish={onSubmit}
                 >
                   <Form.Item
                     name="email"
+                    label="Địa chỉ email"
                     rules={[
+                      {
+                        type: 'email',
+                        message: 'You need to enter a valid Email',
+                      },
                       {
                         required: true,
                         message: 'Vui lòng nhập Email!',
                       },
                     ]}
                   >
-                    <label>Địa chỉ email</label>
-                    <Input
-                      className="input"
-                      prefix={<i className="fa fa-envelope"></i>}
-                      placeholder="Địa chỉ email"
-                    />
+                    <Input className="input" prefix={<MailOutlined />} />
                   </Form.Item>
                   <Form.Item
                     name="phone"
+                    label="Số điện thoại"
                     rules={[
                       {
                         required: true,
                         message:
                           'Số điện thoại chỉ có thể chứa các kí tự số và dấu thập phân',
                       },
+                      {
+                        min: 10,
+                        message: 'Số điện thoại có ít nhất 10 kí tự số',
+                      },
                     ]}
                   >
-                    <label>Số điện thoại</label>
                     <Input
                       type="number"
                       className="input"
@@ -123,6 +139,7 @@ export default function Register() {
                   </Form.Item>
                   <Form.Item
                     name="name"
+                    label="Tên"
                     rules={[
                       {
                         required: true,
@@ -130,11 +147,11 @@ export default function Register() {
                       },
                     ]}
                   >
-                    <label>Tên</label>
-                    <Input className="input" />
+                    <Input className="input" maxLength="10" />
                   </Form.Item>
                   <Form.Item
                     name="firstName"
+                    label="Họ và tên đệm"
                     rules={[
                       {
                         required: true,
@@ -142,31 +159,54 @@ export default function Register() {
                       },
                     ]}
                   >
-                    <label>Họ và tên đệm</label>
-                    <Input className="input" />
+                    <Input className="input" maxLength="25" />
                   </Form.Item>
                   <Form.Item
                     name="password"
+                    label="Mật khẩu (Tối thiểu 8 ký tự)"
                     rules={[
+                      {
+                        min: 8,
+                        message: 'Mật khẩu phải ít nhất 8 ký tự',
+                      },
                       {
                         required: true,
                         message: 'Vui lòng nhập mật khẩu!',
                       },
                     ]}
+                    hasFeedback
                   >
-                    <label>Mật khẩu </label>
-                    <span>(Tối thiểu 8 ký tự)</span>
-                    <Input
+                    <Input.Password
                       className="input"
-                      prefix={<i className="fa fa-lock"></i>}
+                      prefix={<LockOutlined />}
                       type="password"
                     />
                   </Form.Item>
-                  <Form.Item name="confirmPassword">
-                    <label>Xác nhận mật khẩu mới</label>
-                    <Input
+                  <Form.Item
+                    name="confirmPassword"
+                    label="Xác nhận mật khẩu mới"
+                    dependencies={['password']}
+                    hasFeedback
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Vui lòng xác nhận mật khẩu',
+                      },
+                      ({ getFieldValue }) => ({
+                        validator(rule, value) {
+                          if (!value || getFieldValue('password') === value) {
+                            return Promise.resolve();
+                          }
+                          return Promise.reject(
+                            'Mật khẩu xác nhận phải trùng với mật khẩu vừa tạo'
+                          );
+                        },
+                      }),
+                    ]}
+                  >
+                    <Input.Password
                       className="input"
-                      prefix={<i className="fa fa-lock"></i>}
+                      prefix={<LockOutlined />}
                       type="password"
                     />
                   </Form.Item>

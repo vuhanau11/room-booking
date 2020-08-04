@@ -80,12 +80,9 @@
 .ant-menu-horizontal > .ant-menu-item {
   border-bottom: none !important;
 }
-.ant-menu-horizontal > .ant-menu-item-selected a {
-  color: #576173;
-}
 .register,
 .login {
-  color: black;
+  color: #222 !important;
   font-weight: 600;
 }
 .register:hover {
