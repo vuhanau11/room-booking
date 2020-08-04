@@ -1,0 +1,28 @@
+main {
+  position: relative;
+  top: 70px;
+  padding: 0 2.8rem;
+}
+.welcome {
+  height: 150px;
+  position: relative;
+}
+.welcome-text {
+  position: absolute;
+  left: 12%;
+  transform: translate(-25%, 20%);
+}
+.welcome-text p {
+  margin-bottom: 5px;
+}
+.welcome-text p .regis {
+  color: #222 !important;
+}
+.welcome-text p .regis:hover {
+  color: #f6623b !important;
+}
+.title h3 {
+  font-size: 1.75rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}

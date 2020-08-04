@@ -122,8 +122,7 @@ export default function Register() {
                     rules={[
                       {
                         required: true,
-                        message:
-                          'Số điện thoại chỉ có thể chứa các kí tự số và dấu thập phân',
+                        message: 'Số điện thoại chỉ có thể chứa các kí tự số',
                       },
                       {
                         min: 10,

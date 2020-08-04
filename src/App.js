@@ -12,10 +12,10 @@ import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
       <Switch>
-        <Route exact path="/" component={HomeScreen} />
+        <Route exact path={['/', '/home']} component={HomeScreen} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/rooms" component={Rooms} />

@@ -1,4 +1,5 @@
-.content {
-  top: 90px;
+.not-found {
   position: relative;
+  top: 90px;
+  text-align: center;
 }
