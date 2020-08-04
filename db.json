@@ -1,52 +1,68 @@
 {
+  "user": [
+    {
+      "email": "tungnvt1610@gmail.com",
+      "phone": 975161043,
+      "lastName": "Tung",
+      "firstName": "Nguyen",
+      "password": "12345678"
+    },
+    {
+      "email": "abcd@gmail.com",
+      "phone": 984516735,
+      "lastName": "Binh",
+      "firstName": "Do",
+      "password": "abcdefgh"
+    }
+  ],
   "rooms": [
     {
       "id": 1,
       "title": "TP. Hồ Chí Minh",
       "imgUrl": "https://cdn.luxstay.com/home/location/location_5_1559735011.png",
-      "num": "3507"
+      "num": 3507
     },
     {
       "id": 2,
       "title": "Vũng Tàu",
       "imgUrl": "https://cdn.luxstay.com/home/location/location_5_1559735011.png",
-      "num": "795"
+      "num": 795
     },
     {
       "id": 3,
       "title": "Đà Nẵng",
       "imgUrl": "https://cdn.luxstay.com/home/location/location_5_1559735011.png",
-      "num": "1699"
+      "num": 1699
     },
     {
       "id": 4,
       "title": "Đà Lạt",
       "imgUrl": "https://cdn.luxstay.com/home/location/location_5_1559735011.png",
-      "num": "2155"
+      "num": 2155
     },
     {
       "id": 5,
       "title": "Hà Nội",
       "imgUrl": "https://cdn.luxstay.com/home/location/location_5_1559735011.png",
-      "num": "3315"
+      "num": 3315
     },
     {
       "id": 6,
       "title": "Nha Trang",
       "imgUrl": "https://cdn.luxstay.com/home/location/location_5_1559735011.png",
-      "num": "968"
+      "num": 968
     },
     {
       "id": 7,
       "title": "Quảng Ninh",
       "imgUrl": "https://cdn.luxstay.com/home/location/location_5_1559735011.png",
-      "num": "367"
+      "num": 367
     },
     {
       "id": 8,
       "title": "Hội An",
       "imgUrl": "https://cdn.luxstay.com/home/location/location_5_1559735011.png",
-      "num": "474"
+      "num": 474
     }
   ],
   "roomDetail": [
@@ -54,11 +70,11 @@
       "id": 1,
       "name": "Phòng Gốm - Vie De Maison",
       "address": "Ba Đình, Hà Nội, Việt Nam",
-      "size": "13",
+      "size": 13,
       "detail": "Phòng riêng · 1 phòng tắm · 1 giường · 1 phòng ngủ · 2 khách (tối đa 2 khách)",
-      "price": "330000",
+      "price": 330000,
       "imgUrl": "https://cdn.luxstay.com/home/location/location_5_1559735011.png",
-      "num": "474"
+      "num": 474
     }
   ]
 }
