@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/HomeScreen.css';
 import Footer from '../components/Footer';
+import CarouselHighlight from '../components/CarouselHighlight';
 import { Link } from 'react-router-dom';
 
 export default function HomeScreen() {
@@ -31,6 +32,7 @@ export default function HomeScreen() {
           </p>
         </div>
       </div>
+      <CarouselHighlight />
       <Footer />
     </main>
   );
