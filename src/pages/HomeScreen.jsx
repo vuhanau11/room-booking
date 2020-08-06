@@ -1,8 +1,10 @@
 import React from 'react';
-import '../styles/HomeScreen.css';
 import Footer from '../components/Footer';
 import CarouselHighlight from '../components/CarouselHighlight';
+
 import { Link } from 'react-router-dom';
+
+import '../styles/HomeScreen.css';
 
 export default function HomeScreen() {
   return (

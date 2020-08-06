@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import Search from './Search';
+import logo from '../assets/logo.png';
+import logo1 from '../assets/logo1.jpg';
+
 import { Menu, Drawer, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
 import '../styles/Navbar.css';
-import Search from './Search';
-import logo from '../assets/logo.png';
-import logo1 from '../assets/logo1.jpg';
 
 export default function Navbar() {
   const [visible, setVisible] = useState(false);
