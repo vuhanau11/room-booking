@@ -10,11 +10,11 @@ import 'slick-carousel/slick/slick.css';
 import '../styles/CarouselHighlight.css';
 
 export default function CarouselHighlight() {
-  const [place, setPlace] = useState([]);
+  const [city, setCity] = useState([]);
   useEffect(() => {
-    Service.getRooms()
+    Service.getCity()
       .then((res) => {
-        setPlace(res.data);
+        setCity(res.data);
         console.log(res.data);
       })
       .catch((e) => {
@@ -30,11 +30,11 @@ export default function CarouselHighlight() {
         </p>
       </div>
       <Slider {...settings} className="slider">
-        {place.map((data) => (
-          <div key={data.id}>
-            <Link to="/login">
+        {city.map((data) => (
+          <div key={data.cityId}>
+            <Link to={`/city/${data.cityId}`}>
               <div className="image-item">
-                <img alt={'users here'} src={data.imgUrl} />
+                <img alt="city" src={data.imgUrl} />
               </div>
               <div className="text-item">
                 <p>{data.title}</p>

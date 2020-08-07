@@ -1,10 +1,14 @@
 import http from './httpCommon';
 
-const getRooms = () => {
-  return http.get('/rooms');
+const getCity = () => {
+  return http.get('/city');
 };
 
-const getId = (id) => {
+const getCityById = (cityId) => {
+  return http.get(`/city/${cityId}`);
+};
+
+const getRoomById = (id) => {
   return http.get(`/rooms/${id}`);
 };
 
@@ -12,10 +16,11 @@ const getId = (id) => {
 // };
 
 // const findByTitle = (title) => {
-//   return http.get(`/tutorials?title=${title}`);
+//   return http.get(`/rooms?title=${title}`);
 // };
 
 export default {
-  getRooms,
-  getId,
+  getCity,
+  getCityById,
+  getRoomById,
 };

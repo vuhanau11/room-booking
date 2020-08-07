@@ -18,8 +18,8 @@ function App() {
         <Route exact path={['/', '/home']} component={HomeScreen} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/rooms" component={Rooms} />
-        <Route exact path="/rooms/:slug" component={RoomDetail} />
+        <Route exact path="/city/:cityId" component={Rooms} />
+        <Route exact path="/rooms/:id" component={RoomDetail} />
         <Route path="*" component={PageNotFound} />
       </Switch>
     </div>

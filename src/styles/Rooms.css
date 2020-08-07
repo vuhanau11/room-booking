@@ -1,0 +1,14 @@
+.body {
+  position: relative;
+  top: 90px;
+  height: 500px;
+  padding: 0 30px;
+}
+.listRooms-col {
+  margin: 0 10px;
+  max-width: 100%;
+}
+.listRooms-image img {
+  width: 270px;
+  height: 192px;
+}
