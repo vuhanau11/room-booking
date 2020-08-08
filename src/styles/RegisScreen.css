@@ -25,6 +25,8 @@ h1 {
 }
 .regisContent {
   padding: 0 2.8rem;
+  max-width: calc(1296px + 1.6rem);
+  margin: auto;
 }
 .media {
   margin-top: 3rem;
