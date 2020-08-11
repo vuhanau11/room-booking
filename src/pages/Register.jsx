@@ -1,19 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Footer from '../components/Footer';
 import RegisScreen from '../components/RegisScreen';
+import Service from '../services/ApiService';
 
 import { Link } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
 import { Row, Col } from 'antd';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import { layout } from '../models/layout';
+import { ToastContainer, toast } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/RegisScreen.css';
 import '../styles/Register.css';
 
-export default function Register() {
-  const onSubmit = (values) => {
-    console.log('Received values of form: ', values);
+export default function Register(props) {
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+  const onChangePhone = (e) => {
+    const phone = e.target.value;
+    setPhone(phone);
+  };
+  const onChangeLastName = (e) => {
+    const lastName = e.target.value;
+    setLastName(lastName);
+  };
+  const onChangeFirstName = (e) => {
+    const firstName = e.target.value;
+    setFirstName(firstName);
+  };
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
+  const handleRegister = () => {
+    Service.register(email, phone, lastName, firstName, password).then(
+      (response) => {
+        console.log(response);
+        setTimeout(() => {
+          props.history.push('/login');
+        }, 2000);
+        toast.success('Đăng ký thành công! Vui lòng đăng nhập', {
+          autoClose: 1500,
+        });
+      },
+      (error) => {
+        console.log(error);
+        toast.error(error.message);
+      }
+    );
   };
   return (
     <div className="loginScreen">
@@ -45,7 +89,7 @@ export default function Register() {
                   {...layout}
                   name="normal_register"
                   className="regis-form"
-                  onFinish={onSubmit}
+                  onFinish={handleRegister}
                 >
                   <Form.Item
                     name="email"
@@ -61,7 +105,11 @@ export default function Register() {
                       },
                     ]}
                   >
-                    <Input className="input" prefix={<MailOutlined />} />
+                    <Input
+                      className="input"
+                      prefix={<MailOutlined />}
+                      onChange={onChangeEmail}
+                    />
                   </Form.Item>
                   <Form.Item
                     name="phone"
@@ -85,6 +133,7 @@ export default function Register() {
                       type="number"
                       className="input"
                       placeholder="Số điện thoại"
+                      onChange={onChangePhone}
                     />
                   </Form.Item>
                   <Form.Item
@@ -97,7 +146,11 @@ export default function Register() {
                       },
                     ]}
                   >
-                    <Input className="input" maxLength="10" />
+                    <Input
+                      className="input"
+                      maxLength="10"
+                      onChange={onChangeLastName}
+                    />
                   </Form.Item>
                   <Form.Item
                     name="firstName"
@@ -109,7 +162,11 @@ export default function Register() {
                       },
                     ]}
                   >
-                    <Input className="input" maxLength="25" />
+                    <Input
+                      className="input"
+                      maxLength="25"
+                      onChange={onChangeFirstName}
+                    />
                   </Form.Item>
                   <Form.Item
                     name="password"
@@ -130,6 +187,7 @@ export default function Register() {
                       className="input"
                       prefix={<LockOutlined />}
                       type="password"
+                      onChange={onChangePassword}
                     />
                   </Form.Item>
                   <Form.Item
@@ -184,6 +242,12 @@ export default function Register() {
             </Col>
           </Row>
         </div>
+        <ToastContainer
+          position="bottom-left"
+          autoClose={3000}
+          hideProgressBar={true}
+          pauseOnHover={true}
+        />
         <Footer />
       </div>
     </div>

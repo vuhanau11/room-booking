@@ -8,8 +8,8 @@ import '../styles/Rooms.css';
 export default function Rooms(props) {
   console.log(props);
   const [rooms, setRooms] = useState({});
-  const getCityId = (cityId) => {
-    Service.getCityById(cityId)
+  const getCityId = (id) => {
+    Service.getCityById(id)
       .then((res) => {
         setRooms(res.data);
         console.log(res.data);
@@ -19,11 +19,11 @@ export default function Rooms(props) {
       });
   };
   useEffect(() => {
-    getCityId(props.match.params.cityId);
-  }, [props.match.params.cityId]);
+    getCityId(props.match.params.id);
+  }, [props.match.params.id]);
 
   function showroom(rooms) {
-    if (rooms.cityId !== undefined) {
+    if (rooms.id !== undefined) {
       return (
         <div className="listRooms">
           <Row>

@@ -31,8 +31,8 @@ export default function CarouselHighlight() {
       </div>
       <Slider {...settings} className="slider">
         {city.map((data) => (
-          <div key={data.cityId}>
-            <Link to={`/city/${data.cityId}`}>
+          <div key={data.id}>
+            <Link to={`/city/${data.id}`}>
               <div className="image-item">
                 <img alt="city" src={data.imgUrl} />
               </div>
