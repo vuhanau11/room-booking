@@ -39,6 +39,14 @@
       "firstName": "nguyen",
       "password": "12bar45678",
       "id": 5
+    },
+    {
+      "email": "tungnvt0806@gmail.com",
+      "phone": "0347019658",
+      "lastName": "Tung",
+      "firstName": "Nguyen",
+      "password": "vannhuthe",
+      "id": 6
     }
   ],
   "city": [
@@ -47,183 +55,14 @@
       "title": "TP. Hồ Chí Minh",
       "imgUrl": "https://i.imgur.com/OfFgd9r.png",
       "path": "ho-chi-minh",
-      "num": 3507,
-      "rooms": [
-        {
-          "id": 100,
-          "category": "Căn hộ dịch vụ",
-          "name": "Saigon Paramount* Service Apartment* Spacious Studio* Fully Furnished",
-          "address": "Quận 1, Hồ Chí Minh, Vietnam",
-          "space": 30,
-          "size": "3 khách · 1 phòng ngủ · 1 phòng tắm",
-          "detail": "<p>Với diện tích hơn 30 m2, căn hộ studio của Saigon Paramount được thiết kế cửa sổ kính lớn mang đến không gian thoáng mát và đầy ánh nắng, phòng tắm riêng với thiết kế tinh tế, bếp với đầy đủ tiện nghi và các thiết bị hiện đại. Đây là một nơi tuyệt vời để thư giãn sau một ngày dài cũng như là một lựa chọn hợp lý cho bất kỳ ai khi đến du lịch hay làm việc tại Thành Phố Hồ Chí Minh.</p><p></p><p>Saigon Paramount nằm ở vị trí trung tâm Sài gòn, ngay Nhà thờ Tân Định, Công viên Lê Văn Tám. Chỉ mất từ 3 – 5 phút đi bằng xe motorbike, bạn đã đến được các địa điểm nổi tiếng như: Dinh Độc Lập, Nhà Thờ Đức Bà, Phố Đi Bộ Bùi Viện, Chợ Bến Thành, Bảo tàng lịch sử Việt Nam, Landmark81 và chỉ mất khoảng 12 phút để đến Sân bay Tân Sơn Nhất.</p><p></p><p><strong>DỊCH VỤ:</strong></p><p>Lễ tân 24/24</p><p>An ninh, Camera giám sát 24/24</p><p>Wifi miễn phí. Đặc biệt hệ thống wifi của chúng tôi luôn đảm bảo tốc độ cao cho các khách hàng làm việc và giải trí</p><p>Bãi đậu xe máy miễn phí</p><p>Dịch vụ dọn phòng hằng ngày</p><p>Dịch vụ giặt miễn phí cho khách lưu trú từ &gt; 4 ngày</p><p>Hỗ trợ khách thuê xe ô tô, xe máy, hướng dẫn khách tham quan các địa điểm du lịch nổi tiếng</p><p></p><p><strong>TIỆN NGHI:</strong></p><p>Smart TV</p><p>Bàn làm việc</p><p>Sofa</p><p>Bàn ủi</p><p>Máy sấy tóc</p><p>Két an toàn</p><p>Tủ quần áo rộng</p><p>Tủ lạnh, Lò vi sóng …</p><p></p><p><strong>TIỆN ÍCH XUNG QUANH:</strong></p><p>Trong vòng bán kính 500m, có đầy đủ các Ngân hàng, Nhà hàng, Quán Cafe, Rạp chiếu phim, Công viên, Các địa điểm đổi ngoại tệ...</p>",
-          "price": 433000,
-          "imgUrl": "https://i.imgur.com/5d09w6d.jpg",
-          "listImgUrl": [
-            {
-              "id": 1001,
-              "Url": "https://i.imgur.com/LYOQwGH.jpg"
-            },
-            {
-              "id": 1002,
-              "Url": "https://i.imgur.com/m1iwNFS.jpg"
-            },
-            {
-              "id": 1003,
-              "Url": "https://i.imgur.com/NpImxmF.jpg"
-            },
-            {
-              "id": 1004,
-              "Url": "https://i.imgur.com/mXxMDua.jpg"
-            },
-            {
-              "id": 1005,
-              "Url": "https://i.imgur.com/N7UezTA.jpg"
-            }
-          ]
-        },
-        {
-          "id": 101,
-          "category": "Căn hộ chung cư",
-          "name": "Sky Center - Tan Son Nhat Airport Homestay",
-          "address": "Tân Bình, Hồ Chí Minh, Vietnam",
-          "space": 36,
-          "size": "3 khách · 1 phòng ngủ · 1 phòng tắm",
-          "detail": "<p>- Nằm ngay trục đường từ sân bay Tân Sơn Nhất di chuyển và khu nội thành thành phố, cách sân bay chưa đầy 1km</p><p>- Đây là vị trí thuận lợi cho những khách hàng sử dụng phương tiện di chuyển hàng không</p><p>- Tòa nhà Sky Center có <strong>hồ bơi sử dụng miễn phí quanh năm</strong>, có công viên cây xanh, có siêu thị Vinsmart ở tầng trệt cùng với hàng trăm nhà hàng, shophouse, quán cà phê, hiệu thuốc tây...Đảm bảo cho mọi nhu cầu mua sắm và ẩm thực của bạn</p><p>- Ngoài ra tại Sky Center, lực lượng an ninh hoạt động 24/7, lễ tân và dịch vụ vệ sinh hoạt động cả ngày, đáp ứng được những nhu cầu phát sinh từ khách hàng.</p><p>- Trong chỗ ở của chúng tôi có trang bị tủ lạnh, máy giặt, tivi màn hình phẳng, máy điều hòa nhiệt độ, máy nước nóng, tủ quần áo có khóa, bếp nấu cùng phụ kiện nhà bếp, có nồi cơm, ấm đun nước, máy sấy tóc.....</p><p>- Ngoài ra chúng tôi còn cung cấp mì gói, cà phê,<strong> nước lọc miễn phí</strong> cho khách hàng</p><p>- Đối với những khách lưu trú dài ngày, chúng tôi cung cấp dịch vụ <strong>vệ sinh phòng miễn phí 2 lần/tuần</strong> và những dịch vụ khách theo thỏa thuận của khách hàng</p>",
-          "price": 650000,
-          "imgUrl": "https://i.imgur.com/3wZzOYI.jpg",
-          "listImgUrl": [
-            {
-              "id": 1006,
-              "Url": "https://i.imgur.com/X6bHoTU.jpg"
-            },
-            {
-              "id": 1007,
-              "Url": "https://i.imgur.com/ej463PV.jpg"
-            },
-            {
-              "id": 1008,
-              "Url": "https://i.imgur.com/kc3xsHd.jpg"
-            },
-            {
-              "id": 1009,
-              "Url": "https://i.imgur.com/mLNLqBd.jpg"
-            },
-            {
-              "id": 10010,
-              "Url": "https://i.imgur.com/vUcVfUy.jpg"
-            }
-          ]
-        },
-        {
-          "id": 102,
-          "category": "Căn hộ Studio",
-          "name": "BV601 - A Glaring Rustic Loft in Bui Vien",
-          "address": "Quận 1, Hồ Chí Minh, Vietnam",
-          "space": 23,
-          "size": "2 khách · 1 phòng ngủ · 1 phòng tắm",
-          "detail": "<p>- Một căn hộ ở HoLo Bui Vien Saigon - một thành viên của HoLo Fairy Houses Serviced HomeStay Chain</p><p>- Có nhiều phòng để các đoàn có thể đặt các phòng khác để ở cùng nhau.</p><p>- Gần chợ Bến Thành, khu Phạm Ngũ Lão &amp; Bùi Viện</p><p>- Phòng được thiết kế theo phong cách mới và mộc mạc</p><p>- Phòng tắm riêng</p><p>Chúng tôi dành tất cả những gì tuyệt vời nhất cho căn hộ xinh đẹp này để chờ đến ngày được chào đón bạn. Thiết kế chủ đạo với tông màu trắng-vàng khiến cho ngôi nhà thật hiện đại, sang trọng nhưng cũng không kém phần ấm cúng mang đến cho bạn cảm giác như đang ở trong chính ngôi nhà của mình vậy.</p><p>Bên cạnh đó, tôi cũng là một người bản địa <span>vô cùng thân thiện và thoải mái. Chính vì vậy đừng ngại ngần mà chia sẻ với chúng tôi những điều bạn đang thắc mắc hoặc những khó khăn bạn gặp phải khi ở đây. </span></p><p><span>Chúng tôi cũng luôn mong muốn được cùng bạn khám phá nhiều địa điểm tốt đẹp nhất tại đây. </span></p>",
-          "price": 990000,
-          "imgUrl": "https://i.imgur.com/sLygN4x.jpg",
-          "listImgUrl": [
-            {
-              "id": 1011,
-              "Url": "https://i.imgur.com/mut8R80.jpg"
-            },
-            {
-              "id": 1012,
-              "Url": "https://i.imgur.com/OdKXdfZ.jpg"
-            },
-            {
-              "id": 1013,
-              "Url": "https://i.imgur.com/lG2gOIy.jpg"
-            },
-            {
-              "id": 1014,
-              "Url": "https://i.imgur.com/SRQgnPT.jpg"
-            },
-            {
-              "id": 1015,
-              "Url": "https://i.imgur.com/MvrUpkz.jpg"
-            }
-          ]
-        },
-        {
-          "id": 103,
-          "category": "CĂN HỘ CHUNG CƯ · SKY CENTER",
-          "name": "Jolie Home 2❤️Sky Center private Apt?free pool❤️5' to Airport",
-          "address": "Tân Bình, Hồ Chí Minh, Vietnam",
-          "space": 35,
-          "size": "2 khách · 1 phòng ngủ · 1 phòng tắm",
-          "detail": "<p>Vị trí đẹp, thuận tiện đi vào trung tâm cũng như tới sân bay TSN. Có hồ bơi miễn phí.</p><p>Siêu thị, cafe, sân chơi cho trẻ ngay trong toà nhà. Khu vực xung quanh nhiều nhà hàng, trung tâm mua sắm, rạp chiếu phim khu vui chơi.</p><p>Khách có thể tự check in.</p><p>Trong phòng đều có balcon, máy giặt, bàn ủi, ti vi, tủ lạnh.</p><p>Các tiện ích như nước, bia, trà, cafe, mì gói trong phòng đều miễn phí với đầy đủ thiết bị làm bếp (bình nước nóng, lò vi sóng, bếp từ, dao, chén bát..vv) để khách sử dụng.</p><p>Chủ nhà ở cách đó tầm 05' đi xe. Luôn sẵn sàng có mặt khi khách có yêu cầu.</p>",
-          "price": 650000,
-          "imgUrl": "https://i.imgur.com/bkEJ84n.jpg",
-          "listImgUrl": [
-            {
-              "id": 1016,
-              "Url": "https://i.imgur.com/2Xv65MY.jpg"
-            },
-            {
-              "id": 1017,
-              "Url": "https://i.imgur.com/0puTjR2.jpg"
-            },
-            {
-              "id": 1018,
-              "Url": "https://i.imgur.com/MzJpjJM.jpg"
-            },
-            {
-              "id": 1019,
-              "Url": "https://i.imgur.com/So00qlc.jpg"
-            },
-            {
-              "id": 1020,
-              "Url": "https://i.imgur.com/ERndeGl.jpg"
-            }
-          ]
-        }
-      ]
+      "num": 3507
     },
     {
       "id": 2,
       "title": "Vũng Tàu",
       "imgUrl": "https://i.imgur.com/X3piiPE.png",
       "path": "vung-tau",
-      "num": 795,
-      "rooms": [
-        {
-          "id": 200,
-          "category": "CĂN HỘ DỊCH VỤ",
-          "name": "The Avis Apartment - Attic Double 401",
-          "address": "Vũng Tàu, Bà Rịa Vũng Tàu, Vietnam",
-          "space": 15,
-          "size": "2 khách · 1 phòng ngủ · 1 phòng tắm",
-          "detail": "<p>- <strong>The Avis Apartment</strong> có diện tích 15m2 với thiết kế hiện đại, nội thất gỗ và hệ thống cây xanh trong nhà</p><p>-<strong> Nằm ở khu trung tâm</strong>, dễ dàng di chuyển đến các điểm tham quan nổi tiếng trong thành phố</p><p>- Nơi đây cung cấp cho bạn đầy đủ những tiện nghi hiện đại, thoải mái</p><p><span>Nằm trong bán kính 2,3 km từ Tượng Chúa Ki-tô Vua và 2,5 km từ Mũi Nghinh Phong. Chỗ ở của chúng tôi có khu vườn, sân hiên cũng như Wi-Fi miễn phí. Chỗ ở của chúng tôi nằm cách Bạch Dinh 3,8 km và Ngọn hải đăng Vũng Tàu 5 km. Sân bay Quốc tế Tân Sơn Nhất cách đó 107 km.</span></p><p>Bạn gặp vấn đề ở đâu? Về chỗ ởcủa chúng tôi, về các vật dụng trong nhà hay bất cứ vấn đề gì bạn cũng có thể liên lạc trực tiếp với chúng tôi. Chúng tôi rất sẵn lòng để giúp đỡ bạn.</p><p>Chúng tôi cũng có thể giúp bạn thuê xe đạp hoặc chia sẻ với bạn những địa điểm ăn uống và mua sắm tốt ở địa phương với mức giá hợp lý. Hãy hỏi tôi bất cứ điều gì đang thắc mắc nhé!</p>",
-          "price": 450000,
-          "imgUrl": "https://i.imgur.com/PAhW4Fb.jpg",
-          "listImgUrl": [
-            {
-              "id": 2001,
-              "Url": "https://i.imgur.com/2EuuSdd.jpg"
-            },
-            {
-              "id": 2002,
-              "Url": "https://i.imgur.com/2ikYqg5.jpg"
-            },
-            {
-              "id": 2003,
-              "Url": "https://i.imgur.com/IjionJ7.jpg"
-            },
-            {
-              "id": 2004,
-              "Url": "https://i.imgur.com/M1W1BPe.jpg"
-            },
-            {
-              "id": 2005,
-              "Url": "https://i.imgur.com/CsqxyHZ.jpg"
-            }
-          ]
-        }
-      ]
+      "num": 795
     },
     {
       "id": 3,
@@ -266,6 +105,177 @@
       "imgUrl": "https://i.imgur.com/H14EVXh.png",
       "path": "hoi-an",
       "num": 474
+    }
+  ],
+  "rooms": [
+    {
+      "id": 100,
+      "category": "Căn hộ dịch vụ",
+      "name": "Saigon Paramount* Service Apartment* Spacious Studio* Fully Furnished",
+      "address": "Quận 1, Hồ Chí Minh, Vietnam",
+      "space": 30,
+      "size": "3 khách · 1 phòng ngủ · 1 phòng tắm",
+      "detail": "<p>Với diện tích hơn 30 m2, căn hộ studio của Saigon Paramount được thiết kế cửa sổ kính lớn mang đến không gian thoáng mát và đầy ánh nắng, phòng tắm riêng với thiết kế tinh tế, bếp với đầy đủ tiện nghi và các thiết bị hiện đại. Đây là một nơi tuyệt vời để thư giãn sau một ngày dài cũng như là một lựa chọn hợp lý cho bất kỳ ai khi đến du lịch hay làm việc tại Thành Phố Hồ Chí Minh.</p><p></p><p>Saigon Paramount nằm ở vị trí trung tâm Sài gòn, ngay Nhà thờ Tân Định, Công viên Lê Văn Tám. Chỉ mất từ 3 – 5 phút đi bằng xe motorbike, bạn đã đến được các địa điểm nổi tiếng như: Dinh Độc Lập, Nhà Thờ Đức Bà, Phố Đi Bộ Bùi Viện, Chợ Bến Thành, Bảo tàng lịch sử Việt Nam, Landmark81 và chỉ mất khoảng 12 phút để đến Sân bay Tân Sơn Nhất.</p><p></p><p><strong>DỊCH VỤ:</strong></p><p>Lễ tân 24/24</p><p>An ninh, Camera giám sát 24/24</p><p>Wifi miễn phí. Đặc biệt hệ thống wifi của chúng tôi luôn đảm bảo tốc độ cao cho các khách hàng làm việc và giải trí</p><p>Bãi đậu xe máy miễn phí</p><p>Dịch vụ dọn phòng hằng ngày</p><p>Dịch vụ giặt miễn phí cho khách lưu trú từ &gt; 4 ngày</p><p>Hỗ trợ khách thuê xe ô tô, xe máy, hướng dẫn khách tham quan các địa điểm du lịch nổi tiếng</p><p></p><p><strong>TIỆN NGHI:</strong></p><p>Smart TV</p><p>Bàn làm việc</p><p>Sofa</p><p>Bàn ủi</p><p>Máy sấy tóc</p><p>Két an toàn</p><p>Tủ quần áo rộng</p><p>Tủ lạnh, Lò vi sóng …</p><p></p><p><strong>TIỆN ÍCH XUNG QUANH:</strong></p><p>Trong vòng bán kính 500m, có đầy đủ các Ngân hàng, Nhà hàng, Quán Cafe, Rạp chiếu phim, Công viên, Các địa điểm đổi ngoại tệ...</p>",
+      "price": 433000,
+      "imgUrl": "https://i.imgur.com/5d09w6d.jpg",
+      "cityId": 1
+    },
+    {
+      "id": 101,
+      "category": "Căn hộ chung cư",
+      "name": "Sky Center - Tan Son Nhat Airport Homestay",
+      "address": "Tân Bình, Hồ Chí Minh, Vietnam",
+      "space": 36,
+      "size": "3 khách · 1 phòng ngủ · 1 phòng tắm",
+      "detail": "<p>- Nằm ngay trục đường từ sân bay Tân Sơn Nhất di chuyển và khu nội thành thành phố, cách sân bay chưa đầy 1km</p><p>- Đây là vị trí thuận lợi cho những khách hàng sử dụng phương tiện di chuyển hàng không</p><p>- Tòa nhà Sky Center có <strong>hồ bơi sử dụng miễn phí quanh năm</strong>, có công viên cây xanh, có siêu thị Vinsmart ở tầng trệt cùng với hàng trăm nhà hàng, shophouse, quán cà phê, hiệu thuốc tây...Đảm bảo cho mọi nhu cầu mua sắm và ẩm thực của bạn</p><p>- Ngoài ra tại Sky Center, lực lượng an ninh hoạt động 24/7, lễ tân và dịch vụ vệ sinh hoạt động cả ngày, đáp ứng được những nhu cầu phát sinh từ khách hàng.</p><p>- Trong chỗ ở của chúng tôi có trang bị tủ lạnh, máy giặt, tivi màn hình phẳng, máy điều hòa nhiệt độ, máy nước nóng, tủ quần áo có khóa, bếp nấu cùng phụ kiện nhà bếp, có nồi cơm, ấm đun nước, máy sấy tóc.....</p><p>- Ngoài ra chúng tôi còn cung cấp mì gói, cà phê,<strong> nước lọc miễn phí</strong> cho khách hàng</p><p>- Đối với những khách lưu trú dài ngày, chúng tôi cung cấp dịch vụ <strong>vệ sinh phòng miễn phí 2 lần/tuần</strong> và những dịch vụ khách theo thỏa thuận của khách hàng</p>",
+      "price": 650000,
+      "imgUrl": "https://i.imgur.com/3wZzOYI.jpg",
+      "cityId": 1
+    },
+    {
+      "id": 102,
+      "category": "Căn hộ Studio",
+      "name": "BV601 - A Glaring Rustic Loft in Bui Vien",
+      "address": "Quận 1, Hồ Chí Minh, Vietnam",
+      "space": 23,
+      "size": "2 khách · 1 phòng ngủ · 1 phòng tắm",
+      "detail": "<p>- Một căn hộ ở HoLo Bui Vien Saigon - một thành viên của HoLo Fairy Houses Serviced HomeStay Chain</p><p>- Có nhiều phòng để các đoàn có thể đặt các phòng khác để ở cùng nhau.</p><p>- Gần chợ Bến Thành, khu Phạm Ngũ Lão &amp; Bùi Viện</p><p>- Phòng được thiết kế theo phong cách mới và mộc mạc</p><p>- Phòng tắm riêng</p><p>Chúng tôi dành tất cả những gì tuyệt vời nhất cho căn hộ xinh đẹp này để chờ đến ngày được chào đón bạn. Thiết kế chủ đạo với tông màu trắng-vàng khiến cho ngôi nhà thật hiện đại, sang trọng nhưng cũng không kém phần ấm cúng mang đến cho bạn cảm giác như đang ở trong chính ngôi nhà của mình vậy.</p><p>Bên cạnh đó, tôi cũng là một người bản địa <span>vô cùng thân thiện và thoải mái. Chính vì vậy đừng ngại ngần mà chia sẻ với chúng tôi những điều bạn đang thắc mắc hoặc những khó khăn bạn gặp phải khi ở đây. </span></p><p><span>Chúng tôi cũng luôn mong muốn được cùng bạn khám phá nhiều địa điểm tốt đẹp nhất tại đây. </span></p>",
+      "price": 990000,
+      "imgUrl": "https://i.imgur.com/sLygN4x.jpg",
+      "cityId": 1
+    },
+    {
+      "id": 103,
+      "category": "CĂN HỘ CHUNG CƯ · SKY CENTER",
+      "name": "Jolie Home 2❤️Sky Center private Apt?free pool❤️5' to Airport",
+      "address": "Tân Bình, Hồ Chí Minh, Vietnam",
+      "space": 35,
+      "size": "2 khách · 1 phòng ngủ · 1 phòng tắm",
+      "detail": "<p>Vị trí đẹp, thuận tiện đi vào trung tâm cũng như tới sân bay TSN. Có hồ bơi miễn phí.</p><p>Siêu thị, cafe, sân chơi cho trẻ ngay trong toà nhà. Khu vực xung quanh nhiều nhà hàng, trung tâm mua sắm, rạp chiếu phim khu vui chơi.</p><p>Khách có thể tự check in.</p><p>Trong phòng đều có balcon, máy giặt, bàn ủi, ti vi, tủ lạnh.</p><p>Các tiện ích như nước, bia, trà, cafe, mì gói trong phòng đều miễn phí với đầy đủ thiết bị làm bếp (bình nước nóng, lò vi sóng, bếp từ, dao, chén bát..vv) để khách sử dụng.</p><p>Chủ nhà ở cách đó tầm 05' đi xe. Luôn sẵn sàng có mặt khi khách có yêu cầu.</p>",
+      "price": 650000,
+      "imgUrl": "https://i.imgur.com/bkEJ84n.jpg",
+      "cityId": 1
+    },
+    {
+      "id": 200,
+      "category": "CĂN HỘ DỊCH VỤ",
+      "name": "The Avis Apartment - Attic Double 401",
+      "address": "Vũng Tàu, Bà Rịa Vũng Tàu, Vietnam",
+      "area": 15,
+      "size": "2 khách · 1 phòng ngủ · 1 phòng tắm",
+      "detail": "<p>- <strong>The Avis Apartment</strong> có diện tích 15m2 với thiết kế hiện đại, nội thất gỗ và hệ thống cây xanh trong nhà</p><p>-<strong> Nằm ở khu trung tâm</strong>, dễ dàng di chuyển đến các điểm tham quan nổi tiếng trong thành phố</p><p>- Nơi đây cung cấp cho bạn đầy đủ những tiện nghi hiện đại, thoải mái</p><p><span>Nằm trong bán kính 2,3 km từ Tượng Chúa Ki-tô Vua và 2,5 km từ Mũi Nghinh Phong. Chỗ ở của chúng tôi có khu vườn, sân hiên cũng như Wi-Fi miễn phí. Chỗ ở của chúng tôi nằm cách Bạch Dinh 3,8 km và Ngọn hải đăng Vũng Tàu 5 km. Sân bay Quốc tế Tân Sơn Nhất cách đó 107 km.</span></p><p>Bạn gặp vấn đề ở đâu? Về chỗ ởcủa chúng tôi, về các vật dụng trong nhà hay bất cứ vấn đề gì bạn cũng có thể liên lạc trực tiếp với chúng tôi. Chúng tôi rất sẵn lòng để giúp đỡ bạn.</p><p>Chúng tôi cũng có thể giúp bạn thuê xe đạp hoặc chia sẻ với bạn những địa điểm ăn uống và mua sắm tốt ở địa phương với mức giá hợp lý. Hãy hỏi tôi bất cứ điều gì đang thắc mắc nhé!</p>",
+      "rule": "<p>- Không hút thuốc, không sử dụng các chất kích thích</p><p>- Không mang theo vật nuôi</p><p>- Không tổ chức tiệc</p>",
+      "price": 450000,
+      "additional_guests": 200000,
+      "weekend_price": 700000,
+      "minimum_stay": 1,
+      "checkin_time": "02:00 pm",
+      "checkout_time": "12:00 pm",
+      "currency": "VND",
+      "imgUrl": "https://i.imgur.com/PAhW4Fb.jpg",
+      "cityId": 2
+    }
+  ],
+  "listImgUrl": [
+    {
+      "id": 1001,
+      "Url": "https://i.imgur.com/LYOQwGH.jpg"
+    },
+    {
+      "id": 1002,
+      "Url": "https://i.imgur.com/m1iwNFS.jpg"
+    },
+    {
+      "id": 1003,
+      "Url": "https://i.imgur.com/NpImxmF.jpg"
+    },
+    {
+      "id": 1004,
+      "Url": "https://i.imgur.com/mXxMDua.jpg"
+    },
+    {
+      "id": 1005,
+      "Url": "https://i.imgur.com/N7UezTA.jpg"
+    },
+    {
+      "id": 1006,
+      "Url": "https://i.imgur.com/X6bHoTU.jpg"
+    },
+    {
+      "id": 1007,
+      "Url": "https://i.imgur.com/ej463PV.jpg"
+    },
+    {
+      "id": 1008,
+      "Url": "https://i.imgur.com/kc3xsHd.jpg"
+    },
+    {
+      "id": 1009,
+      "Url": "https://i.imgur.com/mLNLqBd.jpg"
+    },
+    {
+      "id": 10010,
+      "Url": "https://i.imgur.com/vUcVfUy.jpg"
+    },
+    {
+      "id": 1011,
+      "Url": "https://i.imgur.com/mut8R80.jpg"
+    },
+    {
+      "id": 1012,
+      "Url": "https://i.imgur.com/OdKXdfZ.jpg"
+    },
+    {
+      "id": 1013,
+      "Url": "https://i.imgur.com/lG2gOIy.jpg"
+    },
+    {
+      "id": 1014,
+      "Url": "https://i.imgur.com/SRQgnPT.jpg"
+    },
+    {
+      "id": 1015,
+      "Url": "https://i.imgur.com/MvrUpkz.jpg"
+    },
+    {
+      "id": 1016,
+      "Url": "https://i.imgur.com/2Xv65MY.jpg"
+    },
+    {
+      "id": 1017,
+      "Url": "https://i.imgur.com/0puTjR2.jpg"
+    },
+    {
+      "id": 1018,
+      "Url": "https://i.imgur.com/MzJpjJM.jpg"
+    },
+    {
+      "id": 1019,
+      "Url": "https://i.imgur.com/So00qlc.jpg"
+    },
+    {
+      "id": 1020,
+      "Url": "https://i.imgur.com/ERndeGl.jpg"
+    },
+    {
+      "id": 2001,
+      "Url": "https://i.imgur.com/2EuuSdd.jpg"
+    },
+    {
+      "id": 2002,
+      "Url": "https://i.imgur.com/2ikYqg5.jpg"
+    },
+    {
+      "id": 2003,
+      "Url": "https://i.imgur.com/IjionJ7.jpg"
+    },
+    {
+      "id": 2004,
+      "Url": "https://i.imgur.com/M1W1BPe.jpg"
+    },
+    {
+      "id": 2005,
+      "Url": "https://i.imgur.com/CsqxyHZ.jpg"
     }
   ]
 }

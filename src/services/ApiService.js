@@ -1,25 +1,19 @@
 import http from './httpCommon';
 
-const register = (email, phone, lastName, firstName, password) => {
-  return http.post('/user', {
-    email,
-    phone,
-    lastName,
-    firstName,
-    password,
-  });
-};
-
 const getCity = () => {
   return http.get('/city');
 };
 
-const getCityById = (id) => {
-  return http.get(`/city/${id}`);
+const getCityById = (cityId) => {
+  return http.get(`/city/${cityId}`);
 };
 
-const getRoomById = (id) => {
-  return http.get(`/rooms/${id}`);
+const getRooms = (cityId) => {
+  return http.get(`/city/${cityId}/rooms`);
+};
+
+const getRoomById = (roomId) => {
+  return http.get(`/rooms/${roomId}`);
 };
 
 // const findByTitle = (title) => {
@@ -29,6 +23,6 @@ const getRoomById = (id) => {
 export default {
   getCity,
   getCityById,
+  getRooms,
   getRoomById,
-  register,
 };

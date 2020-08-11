@@ -6,10 +6,22 @@ import { Link } from 'react-router-dom';
 import '../styles/Rooms.css';
 
 export default function Rooms(props) {
-  console.log(props);
-  const [rooms, setRooms] = useState({});
-  const getCityId = (id) => {
-    Service.getCityById(id)
+  const [cityId, setCityId] = useState({});
+  const [rooms, setRooms] = useState([]);
+
+  const getCityId = (cityId) => {
+    Service.getCityById(cityId)
+      .then((res) => {
+        setCityId(res.data);
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  const getRooms = (roomId) => {
+    Service.getRooms(roomId)
       .then((res) => {
         setRooms(res.data);
         console.log(res.data);
@@ -18,16 +30,21 @@ export default function Rooms(props) {
         console.log(e);
       });
   };
+
   useEffect(() => {
     getCityId(props.match.params.id);
+    getRooms(props.match.params.id);
   }, [props.match.params.id]);
 
-  function showroom(rooms) {
-    if (rooms.id !== undefined) {
-      return (
+  return (
+    <div className="body">
+      <div className="title">
+        <h2>
+          {cityId.num} homestay tại {cityId.title}
+        </h2>
         <div className="listRooms">
           <Row>
-            {rooms.rooms.map((data) => (
+            {rooms.map((data) => (
               <Col key={data.id} md={5} xs={24} className="listRooms-col">
                 <Link to={`/rooms/${data.id}`}>
                   <div className="listRooms-image">
@@ -41,17 +58,6 @@ export default function Rooms(props) {
             ))}
           </Row>
         </div>
-      );
-    }
-  }
-
-  return (
-    <div className="body">
-      <div className="title">
-        <h2>
-          {rooms.num} homestay tại {rooms.title}
-        </h2>
-        {showroom(rooms)}
       </div>
     </div>
   );

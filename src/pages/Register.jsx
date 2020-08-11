@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
 import RegisScreen from '../components/RegisScreen';
-import Service from '../services/ApiService';
+import AuthService from '../services/AuthService';
 
 import { Link } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
@@ -43,7 +43,7 @@ export default function Register(props) {
   };
 
   const handleRegister = () => {
-    Service.register(email, phone, lastName, firstName, password).then(
+    AuthService.register(email, phone, lastName, firstName, password).then(
       (response) => {
         console.log(response);
         setTimeout(() => {
