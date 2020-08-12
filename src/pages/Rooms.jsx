@@ -46,11 +46,13 @@ export default function Rooms(props) {
           <Row>
             {rooms.map((data) => (
               <Col key={data.id} md={5} xs={24} className="listRooms-col">
-                <Link to={`/rooms/${data.id}`}>
+                <Link to={`/rooms/${data.id}`} target="_blank">
                   <div className="listRooms-image">
                     <img alt="rooms" src={data.imgUrl} />
                   </div>
                   <div className="listRooms-name">
+                    <p>{data.name}</p>
+                    <p>Gia: {data.price}</p>
                     <p>{data.size}</p>
                   </div>
                 </Link>
