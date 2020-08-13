@@ -1,0 +1,76 @@
+.room-detail {
+  position: relative;
+  top: 70px;
+}
+.slider-light-box img {
+  height: 420px;
+  width: 100%;
+  padding-right: 5px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.slider-light-box {
+  background-color: black;
+  height: 420px;
+}
+.slider-light-box .slick-prev {
+  left: 5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.slider-light-box .slick-next {
+  right: 5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.slider-light-box .slick-next:hover,
+.slider-light-box .slick-next:focus,
+.slider-light-box .slick-prev:hover,
+.slider-light-box .slick-prev:focus {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.slider-light-box .slick-next::before {
+  color: #fff;
+}
+.slider-light-box .slick-prev::before {
+  color: #fff;
+}
+.room-detail-body {
+  max-width: calc(1100px + 5.6rem);
+  margin: auto;
+  padding: 2.5rem 2.5rem 0 2.5rem;
+}
+.room-detail-left {
+  padding: 0 2rem;
+}
+.room-detail-left .fa {
+  padding: 6px 8px;
+  background-color: #cccccc;
+  border-radius: 50%;
+}
+.room-detail-left h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: black;
+}
+.info {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+.info span {
+  margin-left: 10px;
+  font-weight: 700;
+}
+.size {
+  font-size: 1rem;
+}
+.detail {
+  margin-top: 36px;
+}
+.room-detail-left .avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 56px;
+  position: absolute;
+  top: 15px;
+  left: 50px;
+}

@@ -9,19 +9,22 @@ import Rooms from './pages/Rooms';
 import RoomDetail from './pages/RoomDetail';
 import PageNotFound from './pages/PageNotFound';
 import Navbar from './components/Navbar';
+import SimpleReactLightbox from 'simple-react-lightbox';
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Switch>
-        <Route exact path={['/', '/home']} component={HomeScreen} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/city/:id" component={Rooms} />
-        <Route exact path="/rooms/:id" component={RoomDetail} />
-        <Route path="*" component={PageNotFound} />
-      </Switch>
+      <SimpleReactLightbox>
+        <Switch>
+          <Route exact path={['/', '/home']} component={HomeScreen} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/city/:id" component={Rooms} />
+          <Route exact path="/rooms/:id" component={RoomDetail} />
+          <Route path="*" component={PageNotFound} />
+        </Switch>
+      </SimpleReactLightbox>
     </div>
   );
 }

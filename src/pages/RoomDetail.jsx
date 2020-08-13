@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Service from '../services/ApiService';
+import Slider from 'react-slick';
+import { options } from '../models/lightBox';
+import { SRLWrapper } from 'simple-react-lightbox';
+import { settingLightBox } from '../models/settingSlickLightBox';
 import { Row, Col } from 'antd';
+import avatar from '../assets/avarta.jpg';
+import 'font-awesome/css/font-awesome.css';
+import '../styles/RoomDetail.css';
 
 export default function RoomDetail(props) {
   const [roomDetail, setRoomDetail] = useState({});
@@ -34,23 +41,50 @@ export default function RoomDetail(props) {
   }, [props.match.params.id]);
 
   return (
-    <div className="body">
-      <div className="title">
-        <img src={roomDetail.imgUrl} alt="img" />
-        <h2>{roomDetail.name}</h2>
-        <p>Dia chi: {roomDetail.address}</p>
-        <p>Gia: {roomDetail.price}</p>
-        <div dangerouslySetInnerHTML={{ __html: roomDetail.detail }} />
+    <div className="room-detail">
+      <div className="light-box">
+        <SRLWrapper options={options}>
+          {!listImage ? (
+            <span>Loading...</span>
+          ) : (
+            <Slider {...settingLightBox} className="slider-light-box">
+              {listImage.map((data) => (
+                <div key={data.id} className="listRooms-image">
+                  <img alt="rooms" src={data.Url} />
+                </div>
+              ))}
+            </Slider>
+          )}
+        </SRLWrapper>
       </div>
-      <div className="listImage">
+      <div className="room-detail-body">
         <Row>
-          {listImage.map((data) => (
-            <Col key={data.id} md={5} xs={24} className="listRooms-col">
-              <div className="listRooms-image">
-                <img alt="rooms" src={data.Url} />
-              </div>
-            </Col>
-          ))}
+          <Col md={16} xs={24} className="room-detail-left">
+            <Row>
+              <Col md={20} xs={24}>
+                <h1>{roomDetail.name}</h1>
+              </Col>
+              <Col md={4} xs={24}>
+                <img src={avatar} alt="avatar" className="avatar" />
+              </Col>
+            </Row>
+            <div className="info">
+              <i className="fa fa-map-marker"></i>
+              <span>{roomDetail.address}</span>
+            </div>
+            <div className="info">
+              <i className="fa fa-building"></i>
+              <span>
+                {roomDetail.category} · {roomDetail.area}m<sup>2</sup>
+              </span>
+            </div>
+            <div className="size">{roomDetail.size}</div>
+            <div
+              className="detail"
+              dangerouslySetInnerHTML={{ __html: roomDetail.detail }}
+            />
+          </Col>
+          <Col md={8} xs={24} className="room-detail-right"></Col>
         </Row>
       </div>
     </div>
