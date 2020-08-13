@@ -13,12 +13,58 @@
 .slider {
   margin-top: 15px;
 }
-.slider .slick-prev {
-  left: 0;
+.slick-prev {
+  left: -25px;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 0 7px -4px #000;
+  width: 56px;
+  height: 56px;
+  border-radius: 56px;
+  transition: all 0.3s ease-in-out;
   z-index: 1;
 }
-.slider .slick-next {
-  right: 15px;
+.slick-next {
+  right: -10px;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 0 7px -4px #000;
+  width: 56px;
+  height: 56px;
+  border-radius: 56px;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+.slick-next.slick-disabled,
+.slick-prev.slick-disabled {
+  opacity: 0.5;
+}
+.slick-next:hover,
+.slick-next:focus,
+.slick-prev:hover,
+.slick-prev:focus {
+  color: #000;
+  background-color: #fff;
+}
+.slick-next::before {
+  content: '>';
+  font-weight: 1000;
+  font-size: 1.2rem;
+  color: #000;
+}
+.slick-prev::before {
+  content: '<';
+  font-weight: 1000;
+  font-size: 1.2rem;
+  color: #000;
+}
+.slick-prev:not(.slick-disabled):hover,
+.slick-next:not(.slick-disabled):hover {
+  box-shadow: 0 0 5px 0 rgba(246, 94, 57, 0.5);
+}
+.slick-prev:not(.slick-disabled):hover::before,
+.slick-next:not(.slick-disabled):hover::before {
+  color: #f65e39;
 }
 .slider .image-item {
   width: 247px;
