@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Service from '../services/ApiService';
-import { Row, Col } from 'antd';
+
+import { Row, Col, Rate } from 'antd';
 import { Link } from 'react-router-dom';
 
 import '../styles/Rooms.css';
@@ -8,6 +9,7 @@ import '../styles/Rooms.css';
 export default function Rooms(props) {
   const [cityId, setCityId] = useState({});
   const [rooms, setRooms] = useState([]);
+  const numberFormat = new Intl.NumberFormat();
 
   const getCityId = (cityId) => {
     Service.getCityById(cityId)
@@ -38,7 +40,7 @@ export default function Rooms(props) {
 
   return (
     <div className="body">
-      <div className="title">
+      <div className="room-content">
         <h2>
           {cityId.num} homestay tại {cityId.title}
         </h2>
@@ -50,12 +52,23 @@ export default function Rooms(props) {
                   <div className="listRooms-image">
                     <img alt="rooms" src={data.imgUrl} />
                   </div>
-                  <div className="listRooms-name">
-                    <p>{data.name}</p>
-                    <p>Gia: {data.price}</p>
-                    <p>{data.size}</p>
-                  </div>
                 </Link>
+                <div className="listRooms-name">
+                  <p className="room-type">{data.category}</p>
+                  <Link to={`/rooms/${data.id}`}>
+                    <h3>{data.name}</h3>
+                  </Link>
+                  <p>{data.size}</p>
+                  <p className="room-price">
+                    {numberFormat.format(data.price)}
+                    <u>đ</u>/đêm
+                  </p>
+                  <p>{data.address}</p>
+                  <span>
+                    <Rate allowHalf defaultValue={data.rating} disabled />
+                    {data.review_count}
+                  </span>
+                </div>
               </Col>
             ))}
           </Row>

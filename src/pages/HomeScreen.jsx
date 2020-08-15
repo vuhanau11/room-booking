@@ -8,7 +8,7 @@ import '../styles/HomeScreen.css';
 
 export default function HomeScreen() {
   return (
-    <main>
+    <main className="container">
       <div className="welcome">
         <div className="welcome-text">
           <div className="title">
