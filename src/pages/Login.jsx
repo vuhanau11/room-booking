@@ -1,18 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RegisScreen from '../components/RegisScreen';
 import Footer from '../components/Footer';
-
+import Toast from '../components/Toast';
 import { Link } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import { Row, Col } from 'antd';
+import { toast } from 'react-toastify';
 
 import '../styles/Login.css';
 
-export default function Login() {
-  const onSubmit = (values) => {
-    console.log('Received values of form: ', values);
+import AuthService from '../services/AuthService';
+
+export default function Login(props) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
   };
+
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
+  const handleLogin = () => {
+    AuthService.login(email, password).then(
+      () => {
+        props.history.push('/home');
+        window.location.reload();
+      },
+      (err) => {
+        toast.error(err.response.data.message);
+      }
+    );
+  };
+
   return (
     <div className="loginScreen">
       <div className="regisMain">
@@ -47,7 +72,7 @@ export default function Login() {
                 <Form
                   name="normal_login"
                   className="login-form"
-                  onFinish={onSubmit}
+                  onFinish={handleLogin}
                 >
                   <Form.Item
                     name="email"
@@ -66,6 +91,7 @@ export default function Login() {
                       className="input"
                       prefix={<MailOutlined />}
                       placeholder="Địa chỉ email"
+                      onChange={onChangeEmail}
                     />
                   </Form.Item>
                   <Form.Item
@@ -82,6 +108,7 @@ export default function Login() {
                       prefix={<LockOutlined />}
                       type="password"
                       placeholder="Mật khẩu"
+                      onChange={onChangePassword}
                     />
                   </Form.Item>
                   <Form.Item>
@@ -111,6 +138,7 @@ export default function Login() {
             </Col>
           </Row>
         </div>
+        <Toast />
         <Footer />
       </div>
     </div>

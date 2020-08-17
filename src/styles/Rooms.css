@@ -2,15 +2,18 @@
   position: relative;
   top: 90px;
   height: 500px;
-  padding: 0 30px;
+  padding: 0 2.8rem;
+  margin: auto;
+  max-width: calc(1520px + 5.6rem);
 }
 .listRooms-col {
   margin: 2rem 0.75rem 0 0.75rem;
-  max-width: 100%;
+  max-width: 18%;
 }
 .listRooms-image img {
-  width: 270px;
-  height: 192px;
+  width: 100%;
+  height: 147px;
+  object-fit: cover;
 }
 .listRooms-name {
   margin-top: 0.5rem;

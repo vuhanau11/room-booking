@@ -1,7 +1,9 @@
-import http from './httpCommon';
+import axios from 'axios';
+
+const API_URL = 'http://localhost:8000/auth/';
 
 const register = (email, phone, lastName, firstName, password) => {
-  return http.post('/user', {
+  return axios.post(API_URL + 'register', {
     email,
     phone,
     lastName,
@@ -11,13 +13,15 @@ const register = (email, phone, lastName, firstName, password) => {
 };
 
 const login = (email, password) => {
-  return http
-    .post('/user', {
+  return axios
+    .post(API_URL + 'login', {
       email,
       password,
     })
     .then((response) => {
-      localStorage.setItem('user', JSON.stringify(response.data));
+      if (response.data.accessToken) {
+        localStorage.setItem('user', JSON.stringify(response.data));
+      }
       return response.data;
     });
 };

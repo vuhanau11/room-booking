@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
 import RegisScreen from '../components/RegisScreen';
-import AuthService from '../services/AuthService';
-
+import Toast from '../components/Toast';
 import { Link } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
 import { Row, Col } from 'antd';
 import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import { layout } from '../models/layout';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
 import '../styles/RegisScreen.css';
 import '../styles/Register.css';
+
+import AuthService from '../services/AuthService';
 
 export default function Register(props) {
   const [email, setEmail] = useState('');
@@ -53,9 +53,8 @@ export default function Register(props) {
           autoClose: 1500,
         });
       },
-      (error) => {
-        console.log(error);
-        toast.error(error.message);
+      (err) => {
+        toast.error(err.response.data.message);
       }
     );
   };
@@ -242,12 +241,7 @@ export default function Register(props) {
             </Col>
           </Row>
         </div>
-        <ToastContainer
-          position="bottom-left"
-          autoClose={3000}
-          hideProgressBar={true}
-          pauseOnHover={true}
-        />
+        <Toast />
         <Footer />
       </div>
     </div>
