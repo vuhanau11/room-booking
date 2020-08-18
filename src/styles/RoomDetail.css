@@ -132,3 +132,29 @@
 .room-sidebar-content {
   padding: 24px;
 }
+.room-sidebar-pricing {
+  margin: 0 0 1rem;
+}
+.room-sidebar-pricing .bold {
+  font-size: 28px;
+  font-weight: 900;
+}
+.book-room {
+  border: none;
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 3rem;
+  color: #fff;
+  background-image: linear-gradient(90deg, #f65e38 0, #f68a39 51%, #f65e38);
+  box-shadow: 0 4px 12px 0 rgba(246, 116, 57, 0.4);
+  border-radius: 5px;
+  background-size: 200% auto;
+  font-weight: 700;
+}
+.book-room:hover,
+.book-room:active,
+.book-room:focus {
+  color: #fff;
+  background-position: 100%;
+  background-image: linear-gradient(90deg, #f65e38 0, #f68a39 51%, #f65e38);
+}

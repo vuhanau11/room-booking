@@ -20,9 +20,9 @@ const getListImage = (roomId) => {
   return http.get(`/rooms/${roomId}/listImgUrl`);
 };
 
-// const findByTitle = (title) => {
-//   return http.get(`/rooms?title=${title}`);
-// };
+const findByName = (name) => {
+  return http.get(`/rooms?name=${name}`);
+};
 
 export default {
   getCity,
@@ -30,4 +30,5 @@ export default {
   getRooms,
   getRoomById,
   getListImage,
+  findByName,
 };

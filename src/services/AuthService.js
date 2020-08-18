@@ -3,13 +3,20 @@ import axios from 'axios';
 const API_URL = 'http://localhost:8000/auth/';
 
 const register = (email, phone, lastName, firstName, password) => {
-  return axios.post(API_URL + 'register', {
-    email,
-    phone,
-    lastName,
-    firstName,
-    password,
-  });
+  return axios
+    .post(API_URL + 'register', {
+      email,
+      phone,
+      lastName,
+      firstName,
+      password,
+    })
+    .then((response) => {
+      if (response.config.data) {
+        localStorage.setItem('user', response.config.data);
+      }
+      return response.config.data;
+    });
 };
 
 const login = (email, password) => {
@@ -20,14 +27,14 @@ const login = (email, password) => {
     })
     .then((response) => {
       if (response.data.accessToken) {
-        localStorage.setItem('user', JSON.stringify(response.data));
+        localStorage.setItem('token', JSON.stringify(response.data));
       }
       return response.data;
     });
 };
 
 const logout = () => {
-  localStorage.removeItem('user');
+  localStorage.clear();
 };
 
 const getCurrentUser = () => {
