@@ -151,10 +151,76 @@
   background-size: 200% auto;
   font-weight: 700;
 }
-.book-room:hover,
+.book-room:hover:not(.disabled-button),
 .book-room:active,
 .book-room:focus {
   color: #fff;
   background-position: 100%;
   background-image: linear-gradient(90deg, #f65e38 0, #f68a39 51%, #f65e38);
+}
+.room-sidebar-detail .is-flex {
+  align-items: center;
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.room-sidebar-detail .flex-price {
+  font-size: 1rem;
+  color: #333;
+  text-align: right;
+  flex: 0 0 50%;
+}
+.count {
+  font-weight: 900;
+  color: #000 !important;
+}
+
+/* Room-detail */
+button {
+  cursor: pointer;
+}
+.drop-title {
+  margin-right: 100px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+}
+.increment {
+  float: right;
+}
+.drop {
+  padding: 10px;
+}
+.plus,
+.minus {
+  font-size: 30px;
+}
+.plus:hover,
+.minus:not(.disabled-button):hover {
+  color: #f65e39;
+}
+.disabled-button {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+.delete {
+  color: #000;
+  margin-top: 10px;
+}
+.guest-num {
+  margin: 10px;
+  vertical-align: text-bottom;
+  font-size: 1rem;
+  color: #000;
+}
+.guest {
+  color: #000;
+  margin-bottom: 1rem;
+  margin-top: 6px;
+  height: 2.625rem;
+}
+.guest:hover,
+.guest:focus {
+  color: #000;
+  background-color: #f5f5f5;
 }

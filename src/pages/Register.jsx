@@ -44,8 +44,7 @@ export default function Register(props) {
 
   const handleRegister = () => {
     AuthService.register(email, phone, lastName, firstName, password).then(
-      (response) => {
-        console.log(response);
+      () => {
         setTimeout(() => {
           props.history.push('/login');
         }, 2000);
