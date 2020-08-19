@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 import dayjs from 'dayjs';
 import Slider from 'react-slick';
 import { options } from '../models/lightBox';
 import { SRLWrapper } from 'simple-react-lightbox';
 import { settingLightBox } from '../models/settingSlickLightBox';
 import { Row, Col, DatePicker, Menu, Dropdown, Button } from 'antd';
+import { Link } from 'react-router-dom';
 import {
   UserOutlined,
   PlusCircleOutlined,
@@ -63,7 +65,10 @@ export default function RoomDetail(props) {
   };
 
   function disabledDate(current) {
-    return current && current < dayjs().endOf('day');
+    return (
+      (current && current < dayjs().endOf('day')) ||
+      current > dayjs().add(91, 'day')
+    );
   }
 
   const menu = (
@@ -102,13 +107,12 @@ export default function RoomDetail(props) {
   );
 
   return (
-    <RoomProvider value={roomDetail}>
-      <div className="room-detail">
-        <div className="light-box">
-          <SRLWrapper options={options}>
-            {!listImage ? (
-              <span>Loading...</span>
-            ) : (
+    <>
+      <Navbar />
+      <RoomProvider value={roomDetail}>
+        <div className="room-detail">
+          <div className="light-box">
+            <SRLWrapper options={options}>
               <Slider {...settingLightBox} className="slider-light-box">
                 {listImage.map((data) => (
                   <div key={data.id} className="listRooms-image">
@@ -116,89 +120,17 @@ export default function RoomDetail(props) {
                   </div>
                 ))}
               </Slider>
-            )}
-          </SRLWrapper>
-        </div>
-        <div className="room-detail-body">
-          <Row>
-            <RoomDetailContent />
-            <Col md={8} xs={24} className="room-detail-right">
-              <div className="room-sidebar">
-                <div className="room-sidebar-content">
-                  <div className="room-sidebar-pricing">
-                    {date ? (
-                      <span className="bold">
-                        {currentGuest > roomDetail.guests ? (
-                          <>
-                            {numberFormat.format(
-                              roomDetail.price * date +
-                                roomDetail.additional_guests
-                            )}
-                          </>
-                        ) : (
-                          <>{numberFormat.format(roomDetail.price * date)}</>
-                        )}
-                        <u>đ</u>
-                      </span>
-                    ) : (
-                      <span className="bold">
-                        {numberFormat.format(roomDetail.price)}
-                        <u>đ</u>
-                      </span>
-                    )}
-                    <span className="small"> /{date} đêm</span>
-                  </div>
-                  <DatePicker.RangePicker
-                    value={[dateRange.fromDate, dateRange.toDate]}
-                    size="large"
-                    disabledDate={disabledDate}
-                    placeholder={['dd/mm/yyyy', 'dd/mm/yyyy']}
-                    format="DD/MM/YYYY"
-                    className="datepicker"
-                    style={{ width: '100%' }}
-                    onChange={onChange}
-                  />
-                  <Dropdown
-                    overlay={menu}
-                    trigger={['click']}
-                    placement="bottomLeft"
-                  >
-                    <Button
-                      className="guest"
-                      style={{ width: '100%', textAlign: 'left' }}
-                      icon={<UserOutlined />}
-                    >
-                      {currentGuest > 0 ? (
-                        <span>{currentGuest} khách</span>
-                      ) : (
-                        <span>Số khách</span>
-                      )}
-                    </Button>
-                  </Dropdown>
-                  {date ? (
-                    <div className="room-sidebar-detail">
-                      <div className="is-flex">
-                        <span className="flex-title">Giá thuê {date} đêm</span>
-                        <span className="flex-price">
-                          {numberFormat.format(roomDetail.price * date)}
-                          <u>đ</u>
-                        </span>
-                      </div>
-                      {currentGuest > roomDetail.guests ? (
-                        <div className="is-flex">
-                          <span className="flex-title">
-                            Phí khách tăng thêm
-                          </span>
-                          <span className="flex-price">
-                            {numberFormat.format(roomDetail.additional_guests)}
-                            <u>đ</u>
-                          </span>
-                        </div>
-                      ) : null}
-                      <hr style={{ margin: '10px 0' }} />
-                      <div className="is-flex">
-                        <span className="flex-title count">Tổng tiền</span>
-                        <span className="flex-price count">
+            </SRLWrapper>
+          </div>
+          <div className="room-detail-body">
+            <Row>
+              <RoomDetailContent />
+              <Col md={8} xs={24} className="room-detail-right">
+                <div className="room-sidebar">
+                  <div className="room-sidebar-content">
+                    <div className="room-sidebar-pricing">
+                      {date ? (
+                        <span className="bold">
                           {currentGuest > roomDetail.guests ? (
                             <>
                               {numberFormat.format(
@@ -211,10 +143,87 @@ export default function RoomDetail(props) {
                           )}
                           <u>đ</u>
                         </span>
-                      </div>
+                      ) : (
+                        <span className="bold">
+                          {numberFormat.format(roomDetail.price)}
+                          <u>đ</u>
+                        </span>
+                      )}
+                      <span className="small"> /{date} đêm</span>
                     </div>
-                  ) : null}
-                  {/* <p>
+                    <DatePicker.RangePicker
+                      value={[dateRange.fromDate, dateRange.toDate]}
+                      size="large"
+                      disabledDate={disabledDate}
+                      placeholder={['dd/mm/yyyy', 'dd/mm/yyyy']}
+                      format="DD/MM/YYYY"
+                      className="datepicker"
+                      style={{ width: '100%' }}
+                      onChange={onChange}
+                    />
+                    <Dropdown
+                      overlay={menu}
+                      trigger={['click']}
+                      placement="bottomLeft"
+                    >
+                      <Button
+                        className="guest"
+                        style={{ width: '100%', textAlign: 'left' }}
+                        icon={<UserOutlined />}
+                      >
+                        {currentGuest > 0 ? (
+                          <span>{currentGuest} khách</span>
+                        ) : (
+                          <span>Số khách</span>
+                        )}
+                      </Button>
+                    </Dropdown>
+                    {date ? (
+                      <div className="room-sidebar-detail">
+                        <div className="is-flex">
+                          <span className="flex-title">
+                            Giá thuê {date} đêm
+                          </span>
+                          <span className="flex-price">
+                            {numberFormat.format(roomDetail.price * date)}
+                            <u>đ</u>
+                          </span>
+                        </div>
+                        {currentGuest > roomDetail.guests ? (
+                          <div className="is-flex">
+                            <span className="flex-title">
+                              Phí khách tăng thêm
+                            </span>
+                            <span className="flex-price">
+                              {numberFormat.format(
+                                roomDetail.additional_guests
+                              )}
+                              <u>đ</u>
+                            </span>
+                          </div>
+                        ) : null}
+                        <hr style={{ margin: '10px 0' }} />
+                        <div className="is-flex">
+                          <span className="flex-title count">Tổng tiền</span>
+                          <span className="flex-price count">
+                            {currentGuest > roomDetail.guests ? (
+                              <>
+                                {numberFormat.format(
+                                  roomDetail.price * date +
+                                    roomDetail.additional_guests
+                                )}
+                              </>
+                            ) : (
+                              <>
+                                {numberFormat.format(roomDetail.price * date)}
+                              </>
+                            )}
+                            <u>đ</u>
+                          </span>
+                        </div>
+                      </div>
+                    ) : null}
+                    {/* <p>
                     {dateRange &&
                       dateRange.fromDate &&
                       dateRange.fromDate.format('DD/MM/YYYY')}
@@ -224,26 +233,29 @@ export default function RoomDetail(props) {
                       dateRange.toDate &&
                       dateRange.toDate.format('DD/MM/YYYY')}
                   </p> */}
-                  {date ? (
-                    <button type="button" className="book-room">
-                      Đặt ngay
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      className="book-room disabled-button"
-                      disabled
-                    >
-                      Đặt ngay
-                    </button>
-                  )}
+                    {date ? (
+                      <Link to="/checkout">
+                        <button type="button" className="book-room">
+                          Đặt ngay
+                        </button>
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        className="book-room disabled-button"
+                        disabled
+                      >
+                        Đặt ngay
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </Col>
-          </Row>
+              </Col>
+            </Row>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </RoomProvider>
+      </RoomProvider>
+    </>
   );
 }

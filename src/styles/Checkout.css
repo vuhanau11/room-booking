@@ -1,0 +1,25 @@
+.checkout {
+  position: relative;
+  top: 90px;
+}
+.logo-checkout {
+  position: absolute;
+  left: 12%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.logo-checkout img {
+  width: 244px;
+  height: 125px;
+  display: inline-block;
+  text-transform: capitalize;
+}
+.ant-steps-navigation {
+  padding-top: 22px;
+  max-width: 45%;
+  position: relative;
+  left: 15rem;
+}
+.ant-steps-navigation .ant-steps-item::before {
+  display: none;
+}
