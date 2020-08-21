@@ -7,7 +7,6 @@ import { options } from '../models/lightBox';
 import { SRLWrapper } from 'simple-react-lightbox';
 import { settingLightBox } from '../models/settingSlickLightBox';
 import { Row, Col, DatePicker, Menu, Dropdown, Button } from 'antd';
-import { Link } from 'react-router-dom';
 import {
   UserOutlined,
   PlusCircleOutlined,
@@ -29,6 +28,21 @@ export default function RoomDetail(props) {
   const [currentGuest, setCurrentGuest] = useState(1);
   const numberFormat = new Intl.NumberFormat();
 
+  const fromDate = new Date(dateRange.fromDate);
+  const toDate = new Date(dateRange.toDate);
+  const fromDateObj = dayjs(fromDate);
+  const toDateObj = dayjs(toDate);
+  const fromDateString = fromDateObj.format('DD/MM/YYYY');
+  const toDateString = toDateObj.format('DD/MM/YYYY');
+  const totalPrice = numberFormat.format(
+    roomDetail.price * date + roomDetail.additional_guests
+  );
+  const totalPriceWithoutAddGuest = numberFormat.format(
+    roomDetail.price * date
+  );
+  const additionalGuests = numberFormat.format(roomDetail.additional_guests);
+  const roomPrice = numberFormat.format(roomDetail.price);
+
   const getRoomId = (roomId) => {
     Service.getRoomById(roomId)
       .then((res) => {
@@ -44,7 +58,6 @@ export default function RoomDetail(props) {
     Service.getListImage(imageId)
       .then((res) => {
         setListImage(res.data);
-        console.log(res.data);
       })
       .catch((e) => {
         console.log(e);
@@ -59,7 +72,6 @@ export default function RoomDetail(props) {
   const onChange = (value) => {
     if (value) {
       setDateRange({ fromDate: value[0], toDate: value[1] });
-      console.log(value);
       setDate((value[1] - value[0]) / (1000 * 60 * 60 * 24));
     }
   };
@@ -132,20 +144,15 @@ export default function RoomDetail(props) {
                       {date ? (
                         <span className="bold">
                           {currentGuest > roomDetail.guests ? (
-                            <>
-                              {numberFormat.format(
-                                roomDetail.price * date +
-                                  roomDetail.additional_guests
-                              )}
-                            </>
+                            <>{totalPrice}</>
                           ) : (
-                            <>{numberFormat.format(roomDetail.price * date)}</>
+                            <>{totalPriceWithoutAddGuest}</>
                           )}
                           <u>đ</u>
                         </span>
                       ) : (
                         <span className="bold">
-                          {numberFormat.format(roomDetail.price)}
+                          {roomPrice}
                           <u>đ</u>
                         </span>
                       )}
@@ -185,7 +192,7 @@ export default function RoomDetail(props) {
                             Giá thuê {date} đêm
                           </span>
                           <span className="flex-price">
-                            {numberFormat.format(roomDetail.price * date)}
+                            {totalPriceWithoutAddGuest}
                             <u>đ</u>
                           </span>
                         </div>
@@ -195,9 +202,7 @@ export default function RoomDetail(props) {
                               Phí khách tăng thêm
                             </span>
                             <span className="flex-price">
-                              {numberFormat.format(
-                                roomDetail.additional_guests
-                              )}
+                              {additionalGuests}
                               <u>đ</u>
                             </span>
                           </div>
@@ -207,38 +212,38 @@ export default function RoomDetail(props) {
                           <span className="flex-title count">Tổng tiền</span>
                           <span className="flex-price count">
                             {currentGuest > roomDetail.guests ? (
-                              <>
-                                {numberFormat.format(
-                                  roomDetail.price * date +
-                                    roomDetail.additional_guests
-                                )}
-                              </>
+                              <>{totalPrice}</>
                             ) : (
-                              <>
-                                {numberFormat.format(roomDetail.price * date)}
-                              </>
+                              <>{totalPriceWithoutAddGuest}</>
                             )}
                             <u>đ</u>
                           </span>
                         </div>
                       </div>
                     ) : null}
-                    {/* <p>
-                    {dateRange &&
-                      dateRange.fromDate &&
-                      dateRange.fromDate.format('DD/MM/YYYY')}
-                  </p>
-                  <p>
-                    {dateRange &&
-                      dateRange.toDate &&
-                      dateRange.toDate.format('DD/MM/YYYY')}
-                  </p> */}
                     {date ? (
-                      <Link to="/checkout">
-                        <button type="button" className="book-room">
-                          Đặt ngay
-                        </button>
-                      </Link>
+                      <button
+                        type="button"
+                        className="book-room"
+                        onClick={() => {
+                          props.history.push(
+                            `/checkout?id=${props.match.params.id}&fromDate=${fromDateString}&toDate=${toDateString}&guest=${currentGuest}`,
+                            {
+                              roomDetail,
+                              fromDateString,
+                              toDateString,
+                              currentGuest,
+                              date,
+                              totalPrice,
+                              totalPriceWithoutAddGuest,
+                              additionalGuests,
+                              roomPrice,
+                            }
+                          );
+                        }}
+                      >
+                        Đặt ngay
+                      </button>
                     ) : (
                       <button
                         type="button"

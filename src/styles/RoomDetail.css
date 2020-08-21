@@ -126,6 +126,8 @@
   margin-bottom: 50px;
 }
 .room-sidebar {
+  position: sticky;
+  top: 100px;
   border: 1px solid #e9e9e9;
   border-radius: 4px;
 }
@@ -145,6 +147,7 @@
   width: 100%;
   height: 3rem;
   color: #fff;
+  transition: all 0.3s;
   background-image: linear-gradient(90deg, #f65e38 0, #f68a39 51%, #f65e38);
   box-shadow: 0 4px 12px 0 rgba(246, 116, 57, 0.4);
   border-radius: 5px;
