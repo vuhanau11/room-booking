@@ -24,6 +24,10 @@ const findByName = (name) => {
   return http.get(`/rooms?name=${name}`);
 };
 
+const checkout = (data) => {
+  return http.post('/checkout', data);
+};
+
 export default {
   getCity,
   getCityById,
@@ -31,4 +35,5 @@ export default {
   getRoomById,
   getListImage,
   findByName,
+  checkout,
 };

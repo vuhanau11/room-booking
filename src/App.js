@@ -19,7 +19,7 @@ function App() {
           <Route exact path={['/', '/home']} component={HomeScreen} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/city/:id" component={Rooms} />
+          <Route exact path="/city/:id/:path" component={Rooms} />
           <Route exact path="/rooms/:id" component={RoomDetail} />
           <Route exact path="/checkout" component={Checkout} />
           <Route path="*" component={PageNotFound} />
