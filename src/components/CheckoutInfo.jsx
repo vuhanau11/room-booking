@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, Input } from 'antd';
 
 export default function CheckoutInfo(props) {
+  const { guest, date, roomDetail, fromDateString, toDateString } = props;
   return (
     <>
       <div className="checkout-title">
@@ -16,20 +17,20 @@ export default function CheckoutInfo(props) {
             <Col md={11}>
               <Input
                 className="input input-checkout"
-                defaultValue={`${props.guest} khách`}
+                defaultValue={`${guest} khách`}
                 disabled
               />
             </Col>
           </Row>
         </div>
         <div className="input-group">
-          <label className="input-group-label">{`${props.date} đêm tại ${props.roomDetail.name}`}</label>
+          <label className="input-group-label">{`${date} đêm tại ${roomDetail.name}`}</label>
           <Row>
             <Col className="date" md={11}>
               <div className="is-shadow-box rounded">
                 <hr className="is-green is-decorate"></hr>
                 <p className="gray">Nhận phòng</p>
-                <p className="date-book">{props.fromDateString}</p>
+                <p className="date-book">{fromDateString}</p>
               </div>
             </Col>
             <Col md={1}></Col>
@@ -37,7 +38,7 @@ export default function CheckoutInfo(props) {
               <div className="is-shadow-box rounded">
                 <hr className="is-yellow is-decorate"></hr>
                 <p className="gray">Trả phòng</p>
-                <p className="date-book">{props.toDateString}</p>
+                <p className="date-book">{toDateString}</p>
               </div>
             </Col>
           </Row>
@@ -54,7 +55,7 @@ export default function CheckoutInfo(props) {
           <div
             className="input-group-text"
             dangerouslySetInnerHTML={{
-              __html: props.roomDetail.rule,
+              __html: roomDetail.rule,
             }}
           />
         </div>

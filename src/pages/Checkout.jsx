@@ -5,33 +5,79 @@ import { layout } from '../models/layout';
 import logo1 from '../assets/logo1.jpg';
 import '../styles/Checkout.css';
 import 'antd/dist/antd.css';
-import { Steps, Button, message, Select } from 'antd';
+import { Steps, Button } from 'antd';
 import Footer from '../components/Footer';
 import CheckoutInfo from '../components/CheckoutInfo';
 import RoomCheckoutInfo from '../components/RoomCheckoutInfo';
+import Paypal from '../components/Paypal';
+import Service from '../services/ApiService';
 
 export default function Checkout(props) {
   console.log(props);
-  const { Option } = Select;
+  const initialState = {
+    name: '',
+    phone: '',
+    email: '',
+  };
+  const price =
+    props.location.state.currentGuest > props.location.state.roomDetail.guests
+      ? props.location.state.totalPriceNumber
+      : props.location.state.totalPriceWithoutAddGuestNumber;
+  const priceInUSD =
+    props.location.state.currentGuest > props.location.state.roomDetail.guests
+      ? props.location.state.totalPriceInUSD
+      : props.location.state.totalPriceWithoutAddGuestInUSD;
   const [current, setCurrent] = useState(0);
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [name, setName] = useState('');
-  const onChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
+  const [checkoutInfo, setCheckoutInfo] = useState(initialState);
+
+  const next = () => {
+    setCurrent(current + 1);
   };
-  const onChangePhone = (e) => {
-    const phone = e.target.value;
-    setPhone(phone);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setCheckoutInfo({ ...checkoutInfo, [name]: value });
   };
-  const onChangeName = (e) => {
-    const name = e.target.value;
-    setName(name);
+
+  const saveCheckoutInfo = () => {
+    const data = {
+      name: checkoutInfo.name,
+      phone: checkoutInfo.phone,
+      email: checkoutInfo.email,
+      additionalGuests: props.location.state.additionalGuests,
+      currentGuest: props.location.state.currentGuest,
+      date: props.location.state.date,
+      fromDate: props.location.state.fromDateUTC,
+      toDate: props.location.state.toDateUTC,
+      roomId: props.location.state.roomDetail.id,
+      roomName: props.location.state.roomDetail.name,
+      address: props.location.state.roomDetail.address,
+      price: price,
+    };
+
+    Service.checkout(data)
+      .then((response) => {
+        setCheckoutInfo({
+          name: response.data.name,
+          phone: response.data.phone,
+          email: response.data.email,
+          additionalGuests: response.data.additionalGuests,
+          currentGuest: response.data.currentGuest,
+          date: response.data.date,
+          fromDate: response.data.fromDateUTC,
+          toDate: response.data.toDateUTC,
+          roomId: response.data.id,
+          roomName: response.data.name,
+          address: response.data.address,
+          price: response.data.price,
+        });
+        console.log(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
-  const handleChange = (e) => {
-    console.log(`selected ${e}`);
-  };
+
   const { Step } = Steps;
   const steps = [
     {
@@ -52,7 +98,11 @@ export default function Checkout(props) {
                   <h3>Thông tin của bạn</h3>
                 </div>
                 <div className="space-loose">
-                  <Form {...layout} name="normal_checkout">
+                  <Form
+                    {...layout}
+                    name="normal_checkout"
+                    onFinish={saveCheckoutInfo}
+                  >
                     <Row>
                       <Col md={23}>
                         <Form.Item
@@ -68,7 +118,10 @@ export default function Checkout(props) {
                         >
                           <Input
                             className="input input-checkout customer"
-                            onChange={onChangeName}
+                            onChange={handleInputChange}
+                            value={checkoutInfo.name}
+                            id="name"
+                            name="name"
                           />
                         </Form.Item>
                       </Col>
@@ -98,7 +151,10 @@ export default function Checkout(props) {
                           <Input
                             className="input input-checkout customer"
                             type="number"
-                            onChange={onChangePhone}
+                            onChange={handleInputChange}
+                            value={checkoutInfo.phone}
+                            id="phone"
+                            name="phone"
                           />
                         </Form.Item>
                       </Col>
@@ -121,35 +177,28 @@ export default function Checkout(props) {
                         >
                           <Input
                             className="input input-checkout customer"
-                            onChange={onChangeEmail}
+                            onChange={handleInputChange}
+                            value={checkoutInfo.email}
+                            id="email"
+                            name="email"
                           />
                         </Form.Item>
                       </Col>
                     </Row>
-                  </Form>
-                  <div className="checkout-title">
-                    <h3>Thông tin thêm</h3>
-                  </div>
-                  <div className="input-group">
-                    <label className="input-group-label">
-                      <span className="text-danger">*</span>Mục đích của chuyến
-                      đi này?
-                    </label>
-                  </div>
-                  <Row>
-                    <Col md={11}>
-                      <Select
-                        defaultValue="family"
-                        style={{ width: '100%' }}
-                        onChange={handleChange}
+                    {checkoutInfo ? (
+                      <Button className="next rounded" onClick={next}>
+                        Thanh toán »
+                      </Button>
+                    ) : (
+                      <Button
+                        htmlType="submit"
+                        className="next rounded"
+                        disabled
                       >
-                        <Option value="party">Tổ chức tiệc</Option>
-                        <Option value="family">Dành cho gia đình</Option>
-                        <Option value="onsite">Công tác</Option>
-                        <Option value="other">Khác</Option>
-                      </Select>
-                    </Col>
-                  </Row>
+                        Thanh toán »
+                      </Button>
+                    )}
+                  </Form>
                 </div>
               </div>
             </Col>
@@ -162,7 +211,6 @@ export default function Checkout(props) {
                 fromDateString={props.location.state.fromDateString}
                 toDateString={props.location.state.toDateString}
                 additionalGuests={props.location.state.additionalGuests}
-                roomPrice={props.location.state.roomPrice}
                 totalPrice={props.location.state.totalPrice}
                 totalPriceWithoutAddGuest={
                   props.location.state.totalPriceWithoutAddGuest
@@ -178,7 +226,18 @@ export default function Checkout(props) {
       content: (
         <>
           <Row>
-            <Col md={12} xs={24}></Col>
+            <Col md={12} xs={24}>
+              <div className="payment-div">
+                <div className="checkout-title">
+                  <h3>Chọn phương thức thanh toán</h3>
+                </div>
+                <Paypal
+                  price={priceInUSD}
+                  roomDetail={props.location.state.roomDetail}
+                  onCheckout={saveCheckoutInfo}
+                />
+              </div>
+            </Col>
             <Col md={4} xs={24}></Col>
             <Col md={8} xs={24}>
               <RoomCheckoutInfo
@@ -188,7 +247,6 @@ export default function Checkout(props) {
                 fromDateString={props.location.state.fromDateString}
                 toDateString={props.location.state.toDateString}
                 additionalGuests={props.location.state.additionalGuests}
-                roomPrice={props.location.state.roomPrice}
                 totalPrice={props.location.state.totalPrice}
                 totalPriceWithoutAddGuest={
                   props.location.state.totalPriceWithoutAddGuest
@@ -200,10 +258,6 @@ export default function Checkout(props) {
       ),
     },
   ];
-
-  const next = () => {
-    setCurrent(current + 1);
-  };
 
   return (
     <>
@@ -226,23 +280,6 @@ export default function Checkout(props) {
       </nav>
       <div className="checkout">
         <div className="steps-content">{steps[current].content}</div>
-        <div className="steps-action">
-          {current < steps.length - 1 && (
-            <Button className="next rounded" onClick={next}>
-              Thanh toán »
-            </Button>
-          )}
-          {current === steps.length - 1 && (
-            <Button
-              type="primary"
-              onClick={() =>
-                message.success(props.location.state.fromDateString)
-              }
-            >
-              Done
-            </Button>
-          )}
-        </div>
       </div>
       <div className="footer">
         <Footer />

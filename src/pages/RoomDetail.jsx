@@ -30,6 +30,8 @@ export default function RoomDetail(props) {
 
   const fromDate = new Date(dateRange.fromDate);
   const toDate = new Date(dateRange.toDate);
+  const fromDateUTC = fromDate.toUTCString();
+  const toDateUTC = toDate.toUTCString();
   const fromDateObj = dayjs(fromDate);
   const toDateObj = dayjs(toDate);
   const fromDateString = fromDateObj.format('DD/MM/YYYY');
@@ -37,9 +39,20 @@ export default function RoomDetail(props) {
   const totalPrice = numberFormat.format(
     roomDetail.price * date + roomDetail.additional_guests
   );
+  const totalPriceNumber =
+    roomDetail.price * date + roomDetail.additional_guests;
+  const totalPriceInUSD = (
+    (roomDetail.price * date + roomDetail.additional_guests) /
+    23270
+  ).toFixed(2);
   const totalPriceWithoutAddGuest = numberFormat.format(
     roomDetail.price * date
   );
+  const totalPriceWithoutAddGuestNumber = roomDetail.price * date;
+  const totalPriceWithoutAddGuestInUSD = (
+    (roomDetail.price * date) /
+    23270
+  ).toFixed(2);
   const additionalGuests = numberFormat.format(roomDetail.additional_guests);
   const roomPrice = numberFormat.format(roomDetail.price);
 
@@ -235,9 +248,15 @@ export default function RoomDetail(props) {
                               currentGuest,
                               date,
                               totalPrice,
+                              totalPriceNumber,
                               totalPriceWithoutAddGuest,
+                              totalPriceWithoutAddGuestNumber,
                               additionalGuests,
                               roomPrice,
+                              totalPriceInUSD,
+                              totalPriceWithoutAddGuestInUSD,
+                              fromDateUTC,
+                              toDateUTC,
                             }
                           );
                         }}
