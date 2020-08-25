@@ -39,12 +39,11 @@ export default function Checkout(props) {
     setCheckoutInfo({ ...checkoutInfo, [name]: value });
   };
 
-  const saveCheckoutInfo = () => {
+  const saveCheckoutInfo = (value) => {
     const data = {
       name: checkoutInfo.name,
       phone: checkoutInfo.phone,
       email: checkoutInfo.email,
-      additionalGuests: props.location.state.additionalGuests,
       currentGuest: props.location.state.currentGuest,
       date: props.location.state.date,
       fromDate: props.location.state.fromDateUTC,
@@ -53,6 +52,11 @@ export default function Checkout(props) {
       roomName: props.location.state.roomDetail.name,
       address: props.location.state.roomDetail.address,
       price: price,
+      bookTime: value.create_time,
+      transactionCode: value.id,
+      status: value.status,
+      payerId: value.payer.payer_id,
+      payerEmail: value.payer.email_address,
     };
 
     Service.checkout(data)
@@ -61,7 +65,6 @@ export default function Checkout(props) {
           name: response.data.name,
           phone: response.data.phone,
           email: response.data.email,
-          additionalGuests: response.data.additionalGuests,
           currentGuest: response.data.currentGuest,
           date: response.data.date,
           fromDate: response.data.fromDateUTC,
@@ -70,6 +73,11 @@ export default function Checkout(props) {
           roomName: response.data.name,
           address: response.data.address,
           price: response.data.price,
+          bookTime: response.data.create_time,
+          transactionCode: response.data.id,
+          status: response.data.status,
+          payerId: response.data.payer_id,
+          payerEmail: response.data.email_address,
         });
         console.log(response.data);
       })
@@ -98,11 +106,7 @@ export default function Checkout(props) {
                   <h3>Thông tin của bạn</h3>
                 </div>
                 <div className="space-loose">
-                  <Form
-                    {...layout}
-                    name="normal_checkout"
-                    onFinish={saveCheckoutInfo}
-                  >
+                  <Form {...layout} name="normal_checkout" onFinish={next}>
                     <Row>
                       <Col md={23}>
                         <Form.Item
@@ -185,19 +189,9 @@ export default function Checkout(props) {
                         </Form.Item>
                       </Col>
                     </Row>
-                    {checkoutInfo ? (
-                      <Button className="next rounded" onClick={next}>
-                        Thanh toán »
-                      </Button>
-                    ) : (
-                      <Button
-                        htmlType="submit"
-                        className="next rounded"
-                        disabled
-                      >
-                        Thanh toán »
-                      </Button>
-                    )}
+                    <Button htmlType="submit" className="next rounded">
+                      Thanh toán »
+                    </Button>
                   </Form>
                 </div>
               </div>
@@ -228,9 +222,6 @@ export default function Checkout(props) {
           <Row>
             <Col md={12} xs={24}>
               <div className="payment-div">
-                <div className="checkout-title">
-                  <h3>Chọn phương thức thanh toán</h3>
-                </div>
                 <Paypal
                   price={priceInUSD}
                   roomDetail={props.location.state.roomDetail}

@@ -1,16 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 export default function Paypal(props) {
   console.log(props);
-  const { price, roomDetail } = props;
+  const { price, roomDetail, onCheckout } = props;
   const [paidInfo, setPaidInfo] = useState({});
   const [paid, setPaid] = useState(false);
-  const [error, setError] = useState(null);
   const paypalRef = useRef();
-
-  const checkoutInfo = () => {
-    props.onCheckout();
-  };
 
   useEffect(() => {
     window.paypal
@@ -31,11 +28,9 @@ export default function Paypal(props) {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
           setPaid(true);
-          checkoutInfo();
-          setPaidInfo(order);
+          setPaidInfo(order, onCheckout(order));
         },
         onError: (err) => {
-          setError(err);
           console.error(err);
         },
       })
@@ -45,16 +40,24 @@ export default function Paypal(props) {
 
   if (paid) {
     return (
-      <div>
-        <p>{paidInfo.id}</p>
+      <div className="checkout-title">
+        <h3>
+          Cảm ơn quý khách, đặt phòng của bạn đã hoàn tất. Mã giao dịch:{' '}
+          {paidInfo.id}
+        </h3>
+        <Link to="/home">
+          <Button className="next rounded">Quay về trang chủ</Button>
+        </Link>
       </div>
     );
   }
 
   return (
-    <>
-      {error && <div>Uh oh, an error occurred! {error.message}</div>}
+    <div>
+      <div className="checkout-title">
+        <h3>Chọn phương thức thanh toán</h3>
+      </div>
       <div ref={paypalRef} />
-    </>
+    </div>
   );
 }
