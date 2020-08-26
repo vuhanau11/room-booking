@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/logo.png';
 import logo1 from '../assets/logo1.jpg';
 
@@ -11,27 +11,12 @@ import { CaretDownOutlined } from '@ant-design/icons';
 import '../styles/Navbar.css';
 
 export default function Navbar() {
-  const [currentUser, setCurrentUser] = useState(undefined);
-  const [currentToken, setCurrentToken] = useState(undefined);
+  const user = JSON.parse(localStorage.getItem('user'));
+  const token = JSON.parse(localStorage.getItem('token'));
   const [visible, setVisible] = useState(false);
   const showDrawer = () => {
     setVisible(true);
   };
-
-  useEffect(() => {
-    const user = AuthService.getCurrentUser();
-    if (user) {
-      setCurrentUser(user);
-    }
-  }, []);
-
-  useEffect(() => {
-    const token = AuthService.getToken();
-    if (token) {
-      setCurrentToken(token);
-    }
-    console.log(token);
-  }, []);
 
   const logOut = () => {
     AuthService.logout();
@@ -75,14 +60,14 @@ export default function Navbar() {
         <div className="search">
           <Search />
         </div>
-        {currentToken ? (
+        {token ? (
           <div className="user-info">
             <Dropdown overlay={menu} trigger={['click']}>
               <span
                 className="ant-dropdown-link"
                 onClick={(e) => e.preventDefault()}
               >
-                {currentUser.firstName} {currentUser.lastName}
+                {user.firstName} {user.lastName}
                 <CaretDownOutlined />
               </span>
             </Dropdown>

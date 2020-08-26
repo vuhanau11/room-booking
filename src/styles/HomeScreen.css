@@ -1,10 +1,9 @@
-.container {
+.home-container {
   position: relative;
-  top: 70px;
   padding: 0 2.8rem;
   max-width: calc(1296px + 5.6rem);
   margin: auto;
-  padding: 2.5rem 2.5rem 0 2.5rem;
+  padding: 4.5rem 2.5rem 0 2.5rem;
 }
 .welcome {
   height: 150px;
@@ -28,4 +27,15 @@
   font-size: 1.75rem;
   font-weight: 900;
   margin-bottom: 10px;
+}
+.mt--42 {
+  margin-top: 42px;
+}
+.banner {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.banner img {
+  max-width: 100%;
 }

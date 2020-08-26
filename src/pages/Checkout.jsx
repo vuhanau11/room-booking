@@ -271,7 +271,7 @@ export default function Checkout(props) {
         </Steps>
       </nav>
       <div className="checkout">
-        <div className="container">
+        <div className="checkout-container">
           <div className="steps-content">{steps[current].content}</div>
         </div>
         <div className="footer">

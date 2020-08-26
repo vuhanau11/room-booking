@@ -2,41 +2,22 @@ import React from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import CarouselHighlight from '../components/CarouselHighlight';
-
-import { Link } from 'react-router-dom';
+import banner from '../assets/banner.jpg';
 
 import '../styles/HomeScreen.css';
+import Welcome from '../components/Welcome';
 
 export default function HomeScreen() {
   return (
     <>
       <Navbar />
-      <main className="container">
-        <div className="welcome">
-          <div className="welcome-text">
-            <div className="title">
-              <h3>Chào mừng đến với Luxstay!</h3>
-            </div>
-            <p>
-              Đặt chỗ ở, homestay, cho thuê xe, trải nghiệm và nhiều hơn nữa
-              trên Luxstay
-            </p>
-            <p>
-              <u>
-                <Link to="/login" className="regis">
-                  Đăng nhập
-                </Link>
-              </u>
-              <span> hoặc </span>
-              <u>
-                <Link to="/register" className="regis">
-                  Đăng ký
-                </Link>
-              </u>
-              &nbsp;để trải nghiệm !
-            </p>
+      <main className="home-container">
+        <div className="mt--42">
+          <div className="banner">
+            <img src={banner} alt="banner" />
           </div>
         </div>
+        <Welcome />
         <CarouselHighlight />
         <Footer />
       </main>

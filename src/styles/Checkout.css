@@ -1,9 +1,9 @@
 .checkout {
   background-color: #f4f4f4;
 }
-.container {
+.checkout-container {
   max-width: calc(1296px + 5.6rem);
-  padding: 2.5rem 2.8rem 0 2.8rem;
+  padding: 5.5rem 2.8rem 0 2.8rem;
   margin: auto;
 }
 .ant-steps-item-process .ant-steps-item-icon {
