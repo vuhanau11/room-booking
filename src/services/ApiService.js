@@ -8,6 +8,9 @@ const getCityById = (cityId) => {
   return http.get(`/city/${cityId}`);
 };
 
+const getAllRooms = () => {
+  return http.get(`/rooms`);
+};
 const getRooms = (cityId) => {
   return http.get(`/city/${cityId}/rooms`);
 };
@@ -36,4 +39,5 @@ export default {
   getListImage,
   findByName,
   checkout,
+  getAllRooms,
 };
