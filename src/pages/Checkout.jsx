@@ -226,6 +226,7 @@ export default function Checkout(props) {
                   price={priceInUSD}
                   roomDetail={props.location.state.roomDetail}
                   onCheckout={saveCheckoutInfo}
+                  emailInfo={checkoutInfo.email}
                 />
               </div>
             </Col>

@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 import logo from '../assets/logo.png';
 import logo1 from '../assets/logo1.jpg';
 
-import { Menu, Drawer, Button, Input, Dropdown } from 'antd';
+import { Menu, Drawer, Button, Dropdown } from 'antd';
 import { Link } from 'react-router-dom';
 import AuthService from '../services/AuthService';
-import { SearchOutlined, CaretDownOutlined } from '@ant-design/icons';
+import Search from '../components/Search';
+import { CaretDownOutlined } from '@ant-design/icons';
 
 import '../styles/Navbar.css';
 
 export default function Navbar() {
-  const { Search } = Input;
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [currentToken, setCurrentToken] = useState(undefined);
   const [visible, setVisible] = useState(false);
   const showDrawer = () => {
     setVisible(true);
@@ -19,10 +20,17 @@ export default function Navbar() {
 
   useEffect(() => {
     const user = AuthService.getCurrentUser();
-
     if (user) {
       setCurrentUser(user);
     }
+  }, []);
+
+  useEffect(() => {
+    const token = AuthService.getToken();
+    if (token) {
+      setCurrentToken(token);
+    }
+    console.log(token);
   }, []);
 
   const logOut = () => {
@@ -65,13 +73,9 @@ export default function Navbar() {
       </div>
       <div className="subMenu">
         <div className="search">
-          <Search
-            className="input-search group"
-            placeholder="Tìm kiếm"
-            prefix={<SearchOutlined />}
-          />
+          <Search />
         </div>
-        {currentUser ? (
+        {currentToken ? (
           <div className="user-info">
             <Dropdown overlay={menu} trigger={['click']}>
               <span

@@ -41,9 +41,14 @@ const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem('user'));
 };
 
+const getToken = () => {
+  return JSON.parse(localStorage.getItem('token'));
+};
+
 export default {
   register,
   login,
   logout,
   getCurrentUser,
+  getToken,
 };

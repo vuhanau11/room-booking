@@ -1,0 +1,60 @@
+.input-search {
+  width: 100%;
+  text-align: left;
+  border: none;
+  padding: 0 10px;
+  color: #000;
+}
+span.ant-input-search.ant-select-selection-search-input.ant-input-affix-wrapper.ant-input-affix-wrapper-lg {
+  border: none;
+  background-color: #f5f5f5;
+}
+
+.ant-input-affix-wrapper-lg .ant-input-search-icon {
+  padding: 0 5px;
+  margin: 0 5px !important;
+}
+
+.subMenu .ant-input-affix-wrapper > input.ant-input {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+span.anticon.anticon-close-circle.ant-input-clear-icon {
+  font-size: 15px;
+  width: 25px;
+}
+
+span.anticon.anticon-search.ant-input-search-icon {
+  width: 50px;
+  background: #555555;
+  height: 35px;
+  line-height: 40px;
+  margin: 0;
+  color: #fff;
+  border-radius: 10%;
+}
+
+.ant-select-item {
+  padding: 10px 12px;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.ant-select-item-option-content::before {
+  content: '';
+  display: block;
+  background-image: url('../assets/building.jpg');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin: 0 6px 0 0;
+}
+
+.group {
+  position: absolute;
+  left: 23%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

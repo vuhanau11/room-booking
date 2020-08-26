@@ -132,9 +132,6 @@ export default function Login(props) {
                           Đăng ký
                         </Link>
                       </Form.Item>
-                      <Form.Item>
-                        <span>Hoặc</span>
-                      </Form.Item>
                     </div>
                   </Form>
                 </div>
