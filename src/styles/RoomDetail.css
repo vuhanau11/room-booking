@@ -65,6 +65,7 @@
 }
 .detail {
   margin-top: 36px;
+  text-align: justify;
 }
 .room-detail-left .avatar {
   width: 56px;

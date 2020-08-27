@@ -9,7 +9,8 @@ import '../styles/Search.css';
 export default function Search() {
   const history = useHistory();
   const { Search } = Input;
-  const [searchList, setSearchList] = useState([]);
+  const [listRooms, setListRooms] = useState([]);
+  const [options, setOptions] = useState([]);
 
   useEffect(() => {
     Service.getAllRooms()
@@ -19,25 +20,38 @@ export default function Search() {
           value: index.name,
           key: index.id,
         }));
-        setSearchList(listSearch);
+        setListRooms(listSearch);
       })
       .catch((e) => {
         console.log(e);
       });
   }, []);
+  const onSearch = (value) => {
+    history.push(`/search?name=${value}`);
+  };
 
   const onSelect = (key) => {
     history.push(`/rooms/${key}`);
   };
+
+  const onSearchOptions = (value) => {
+    if (value) {
+      const list = listRooms.filter((index) => {
+        return index.value.toUpperCase().search(value.toUpperCase()) !== -1;
+      });
+      setOptions(list);
+    } else {
+      setOptions([]);
+    }
+  };
+
   return (
     <AutoComplete
       dropdownMatchSelectWidth={252}
       style={{ width: 450 }}
       className="input-search group"
-      options={searchList}
-      filterOption={(inputValue, option) =>
-        option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-      }
+      options={options}
+      onSearch={(value) => onSearchOptions(value)}
       onSelect={(value, option) => {
         onSelect(option.key);
       }}
@@ -47,6 +61,7 @@ export default function Search() {
         placeholder="Tìm kiếm"
         prefix={<SearchOutlined />}
         allowClear
+        onSearch={(value) => onSearch(value)}
       />
     </AutoComplete>
   );

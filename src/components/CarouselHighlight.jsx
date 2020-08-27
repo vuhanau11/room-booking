@@ -15,7 +15,6 @@ export default function CarouselHighlight() {
     Service.getCity()
       .then((res) => {
         setCity(res.data);
-        console.log(res.data);
       })
       .catch((e) => {
         console.log(e);
@@ -32,7 +31,7 @@ export default function CarouselHighlight() {
       <Slider {...settings} className="slider">
         {city.map((data) => (
           <div key={data.id}>
-            <Link to={`/city/${data.id}/${data.path}`}>
+            <Link to={`/city/${data.id}`}>
               <div className="image-item">
                 <img alt="city" src={data.imgUrl} />
               </div>

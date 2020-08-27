@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.css';
 
 export default function RoomCheckoutInfo(props) {
-  console.log(props);
   const {
     additionalGuests,
     date,

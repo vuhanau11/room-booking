@@ -6,6 +6,9 @@
   margin: auto;
   max-width: calc(1520px + 5.6rem);
 }
+.room-content h2 {
+  font-weight: 900;
+}
 .listRooms-col {
   margin: 2rem 0.75rem 0 0.75rem;
   max-width: 18%;

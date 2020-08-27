@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 import '../styles/Rooms.css';
 import 'antd/dist/antd.css';
+import Footer from '../components/Footer';
 
 export default function Rooms(props) {
   const [cityId, setCityId] = useState({});
@@ -17,7 +18,6 @@ export default function Rooms(props) {
     Service.getCityById(cityId)
       .then((res) => {
         setCityId(res.data);
-        console.log(res.data);
       })
       .catch((e) => {
         console.log(e);
@@ -28,7 +28,6 @@ export default function Rooms(props) {
     Service.getRooms(roomId)
       .then((res) => {
         setRooms(res.data);
-        console.log(res.data);
       })
       .catch((e) => {
         console.log(e);
@@ -78,6 +77,7 @@ export default function Rooms(props) {
             </Row>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );

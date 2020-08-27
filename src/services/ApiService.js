@@ -1,4 +1,5 @@
 import http from './httpCommon';
+import queryString from 'query-string';
 
 const getCity = () => {
   return http.get('/city');
@@ -23,8 +24,9 @@ const getListImage = (roomId) => {
   return http.get(`/rooms/${roomId}/listImgUrl`);
 };
 
-const findByName = (name) => {
-  return http.get(`/rooms?name=${name}`);
+const findByName = (params) => {
+  const queryParams = queryString.stringify(params);
+  return http.get(`/rooms?${queryParams}`);
 };
 
 const checkout = (data) => {

@@ -13,7 +13,6 @@ import Paypal from '../components/Paypal';
 import Service from '../services/ApiService';
 
 export default function Checkout(props) {
-  console.log(props);
   const initialState = {
     name: '',
     phone: '',

@@ -60,7 +60,6 @@ export default function RoomDetail(props) {
     Service.getRoomById(roomId)
       .then((res) => {
         setRoomDetail(res.data);
-        console.log(res.data);
       })
       .catch((e) => {
         console.log(e);

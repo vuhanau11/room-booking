@@ -10,6 +10,7 @@ import RoomDetail from './pages/RoomDetail';
 import PageNotFound from './pages/PageNotFound';
 import SimpleReactLightbox from 'simple-react-lightbox';
 import Checkout from './pages/Checkout';
+import SearchPage from './pages/SearchPage';
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
           <Route exact path={['/', '/home']} component={HomeScreen} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/city/:id/:path" component={Rooms} />
+          <Route exact path="/city/:id" component={Rooms} />
           <Route exact path="/rooms/:id" component={RoomDetail} />
+          <Route exact path="/search" component={SearchPage} />
           <Route exact path="/checkout" component={Checkout} />
           <Route path="*" component={PageNotFound} />
         </Switch>
