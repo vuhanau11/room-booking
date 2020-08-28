@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 
 import { Row, Col, Rate } from 'antd';
 import { Link } from 'react-router-dom';
+import Loading from '../components/Loading';
 
 import '../styles/Rooms.css';
 import 'antd/dist/antd.css';
@@ -12,6 +13,7 @@ import Footer from '../components/Footer';
 export default function Rooms(props) {
   const [cityId, setCityId] = useState({});
   const [rooms, setRooms] = useState([]);
+  const [loading, setLoading] = useState(true);
   const numberFormat = new Intl.NumberFormat();
 
   const getCityId = (cityId) => {
@@ -28,6 +30,7 @@ export default function Rooms(props) {
     Service.getRooms(roomId)
       .then((res) => {
         setRooms(res.data);
+        setLoading(false);
       })
       .catch((e) => {
         console.log(e);
@@ -47,35 +50,39 @@ export default function Rooms(props) {
           <h2>
             {cityId.num} homestay tại {cityId.title}
           </h2>
-          <div className="listRooms">
-            <Row>
-              {rooms.map((data) => (
-                <Col key={data.id} md={5} xs={24} className="listRooms-col">
-                  <Link to={`/rooms/${data.id}`}>
-                    <div className="listRooms-image">
-                      <img alt="rooms" src={data.imgUrl} />
-                    </div>
-                  </Link>
-                  <div className="listRooms-name">
-                    <p className="room-type">{data.category}</p>
+          {loading ? (
+            <Loading />
+          ) : (
+            <div className="listRooms">
+              <Row>
+                {rooms.map((data) => (
+                  <Col key={data.id} md={5} xs={24} className="listRooms-col">
                     <Link to={`/rooms/${data.id}`}>
-                      <h3>{data.name}</h3>
+                      <div className="listRooms-image">
+                        <img alt="rooms" src={data.imgUrl} />
+                      </div>
                     </Link>
-                    <p>{data.size}</p>
-                    <p className="room-price">
-                      {numberFormat.format(data.price)}
-                      <u>đ</u>/đêm
-                    </p>
-                    <p>{data.address}</p>
-                    <span>
-                      <Rate allowHalf defaultValue={data.rating} disabled />
-                      {data.review_count}
-                    </span>
-                  </div>
-                </Col>
-              ))}
-            </Row>
-          </div>
+                    <div className="listRooms-name">
+                      <p className="room-type">{data.category}</p>
+                      <Link to={`/rooms/${data.id}`}>
+                        <h3>{data.name}</h3>
+                      </Link>
+                      <p>{data.size}</p>
+                      <p className="room-price">
+                        {numberFormat.format(data.price)}
+                        <u>đ</u>/đêm
+                      </p>
+                      <p>{data.address}</p>
+                      <span>
+                        <Rate allowHalf defaultValue={data.rating} disabled />
+                        {data.review_count}
+                      </span>
+                    </div>
+                  </Col>
+                ))}
+              </Row>
+            </div>
+          )}
         </div>
         <Footer />
       </div>

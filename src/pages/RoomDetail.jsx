@@ -18,6 +18,7 @@ import 'font-awesome/css/font-awesome.css';
 import '../styles/RoomDetail.css';
 
 import Service from '../services/ApiService';
+import Loading from '../components/Loading';
 import RoomDetailContent from '../components/RoomDetailContent';
 
 export default function RoomDetail(props) {
@@ -25,6 +26,7 @@ export default function RoomDetail(props) {
   const [listImage, setListImage] = useState([]);
   const [dateRange, setDateRange] = useState({ fromDate: null, toDate: null });
   const [date, setDate] = useState();
+  const [loading, setLoading] = useState(true);
   const [currentGuest, setCurrentGuest] = useState(1);
   const numberFormat = new Intl.NumberFormat();
 
@@ -70,6 +72,7 @@ export default function RoomDetail(props) {
     Service.getListImage(imageId)
       .then((res) => {
         setListImage(res.data);
+        setLoading(false);
       })
       .catch((e) => {
         console.log(e);
@@ -136,15 +139,19 @@ export default function RoomDetail(props) {
       <RoomProvider value={roomDetail}>
         <div className="room-detail">
           <div className="light-box">
-            <SRLWrapper options={options}>
-              <Slider {...settingLightBox} className="slider-light-box">
-                {listImage.map((data) => (
-                  <div key={data.id} className="listRooms-image">
-                    <img alt="rooms" src={data.Url} />
-                  </div>
-                ))}
-              </Slider>
-            </SRLWrapper>
+            {loading ? (
+              <Loading />
+            ) : (
+              <SRLWrapper options={options}>
+                <Slider {...settingLightBox} className="slider-light-box">
+                  {listImage.map((data) => (
+                    <div key={data.id} className="listRooms-image">
+                      <img alt="rooms" src={data.Url} />
+                    </div>
+                  ))}
+                </Slider>
+              </SRLWrapper>
+            )}
           </div>
           <div className="room-detail-body">
             <Row>
