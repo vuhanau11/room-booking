@@ -6,6 +6,9 @@
   margin: auto;
   max-width: calc(1520px + 5.6rem);
 }
+.room-content {
+  margin-bottom: 2.5rem;
+}
 .room-content h2 {
   font-weight: 900;
 }
@@ -63,4 +66,29 @@ p.room-price {
 }
 .ant-rate-star:not(:last-child) {
   margin-right: 2px;
+}
+@media (max-width: 767px) {
+  .body {
+    padding: 0 1.25rem;
+  }
+  .room-content h2 {
+    font-size: 24px;
+  }
+  .listRooms-col {
+    max-width: 10rem;
+  }
+  .listRooms-image img {
+    height: 125px;
+  }
+}
+@media (min-width: 375px) and (max-width: 400px) {
+  .room-content h2 {
+    font-size: 22px;
+  }
+  .listRooms-col {
+    max-width: 8.95rem;
+  }
+  .listRooms-image img {
+    height: 110px;
+  }
 }

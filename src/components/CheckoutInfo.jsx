@@ -26,15 +26,14 @@ export default function CheckoutInfo(props) {
         <div className="input-group">
           <label className="input-group-label">{`${date} đêm tại ${roomDetail.name}`}</label>
           <Row>
-            <Col className="date" md={11}>
+            <Col className="date-in" md={12} xs={12}>
               <div className="is-shadow-box rounded">
                 <hr className="is-green is-decorate"></hr>
                 <p className="gray">Nhận phòng</p>
                 <p className="date-book">{fromDateString}</p>
               </div>
             </Col>
-            <Col md={1}></Col>
-            <Col className="date" md={11}>
+            <Col className="date-out" md={12} xs={12}>
               <div className="is-shadow-box rounded">
                 <hr className="is-yellow is-decorate"></hr>
                 <p className="gray">Trả phòng</p>

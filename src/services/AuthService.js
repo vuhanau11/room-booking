@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://mock-project-rikkei.herokuapp.com/auth/';
+const API_URL = 'http://localhost:8000/auth/';
 
 const register = (email, phone, lastName, firstName, password) => {
   return axios

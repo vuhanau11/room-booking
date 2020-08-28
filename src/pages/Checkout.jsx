@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Form, Input } from 'antd';
 import { layout } from '../models/layout';
-import logo1 from '../assets/logo1.jpg';
+import logo1 from '../assets/logo-app.jpg';
 import '../styles/Checkout.css';
 import 'antd/dist/antd.css';
 import { Steps, Button } from 'antd';
@@ -107,7 +107,7 @@ export default function Checkout(props) {
                 <div className="space-loose">
                   <Form {...layout} name="normal_checkout" onFinish={next}>
                     <Row>
-                      <Col md={23}>
+                      <Col md={24} xs={24}>
                         <Form.Item
                           name="name"
                           label="Tên Khách hàng"
@@ -130,7 +130,7 @@ export default function Checkout(props) {
                       </Col>
                     </Row>
                     <Row>
-                      <Col md={11}>
+                      <Col md={12} xs={24} className="phone-input">
                         <Form.Item
                           name="phone"
                           label="Số điện thoại"
@@ -161,8 +161,7 @@ export default function Checkout(props) {
                           />
                         </Form.Item>
                       </Col>
-                      <Col md={1}></Col>
-                      <Col md={11}>
+                      <Col md={12} xs={24} className="email-input">
                         <Form.Item
                           name="email"
                           label="Email"

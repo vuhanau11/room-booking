@@ -1,6 +1,5 @@
 .home-container {
   position: relative;
-  padding: 0 2.8rem;
   max-width: calc(1296px + 5.6rem);
   margin: auto;
   padding: 4.5rem 2.5rem 0 2.5rem;
@@ -11,8 +10,7 @@
 }
 .welcome-text {
   position: absolute;
-  left: 12%;
-  transform: translate(-25%, 20%);
+  top: 2.5rem;
 }
 .welcome-text p {
   margin-bottom: 5px;
@@ -38,4 +36,21 @@
 }
 .banner img {
   max-width: 100%;
+}
+.banner-img1 {
+  display: none;
+}
+@media (max-width: 767px) {
+  .banner-img {
+    display: none;
+  }
+  .banner-img1 {
+    display: block;
+  }
+  .home-container {
+    padding: 4.5rem 1.25rem 0 1.25rem;
+  }
+  .welcome-text {
+    top: 1rem;
+  }
 }

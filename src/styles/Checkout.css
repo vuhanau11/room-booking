@@ -6,6 +6,18 @@
   padding: 5.5rem 2.8rem 0 2.8rem;
   margin: auto;
 }
+.date-in {
+  padding-right: 7px;
+}
+.date-out {
+  padding-left: 7px;
+}
+.phone-input {
+  padding-right: 7px;
+}
+.email-input {
+  padding-left: 7px;
+}
 .ant-steps-item-process .ant-steps-item-icon {
   background-color: #f65e39;
   border: none;
@@ -28,7 +40,6 @@
 }
 .logo-checkout img {
   width: 244px;
-  height: 125px;
   display: inline-block;
   text-transform: capitalize;
 }
@@ -266,4 +277,44 @@
 }
 .bold {
   font-weight: 900;
+}
+@media (max-width: 767px) {
+  .checkout-container {
+    padding: 5.5rem 1.25rem 2rem 1.25rem;
+  }
+  .checkup {
+    margin-bottom: 0;
+  }
+  .phone-input {
+    padding: 0;
+  }
+  .email-input {
+    padding: 0;
+  }
+  .footer {
+    top: 100px;
+  }
+  .logo-checkout {
+    left: 30%;
+  }
+  .logo-checkout img {
+    width: 180px;
+  }
+  .steps {
+    display: none !important;
+  }
+}
+@media (min-width: 375px) and (max-width: 400px) {
+  .footer {
+    top: 120px;
+  }
+  .logo-checkout {
+    left: 30%;
+  }
+  .logo-checkout img {
+    width: 180px;
+  }
+  .steps {
+    display: none !important;
+  }
 }

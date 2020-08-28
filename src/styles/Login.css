@@ -75,6 +75,15 @@
     width: 100%;
     text-align: left;
     position: relative;
-    top: -180%;
+    top: -198%;
+  }
+}
+@media (min-width: 375px) and (max-width: 400px) {
+  .loginAccount {
+    padding: 2rem;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    top: -205%;
   }
 }

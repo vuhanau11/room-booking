@@ -1,5 +1,7 @@
 .carousel {
-  margin-top: 3.5rem;
+  position: relative;
+  top: 3.5rem;
+  margin-bottom: 5rem;
   height: 400px;
 }
 .carousel h2 {
@@ -83,4 +85,27 @@
   font-weight: 900;
   font-size: 1.5rem;
   margin-bottom: 0.25rem;
+}
+@media (max-width: 767px) {
+  .carousel-title p {
+    display: none;
+  }
+  .carousel {
+    top: 5.5rem;
+    height: 370px;
+    margin-bottom: 0;
+  }
+  .slick-next,
+  .slick-prev {
+    display: none !important;
+  }
+  .slider img {
+    height: 230px;
+    width: 100%;
+    padding-right: 10px;
+    object-fit: fill;
+  }
+  .text-item {
+    max-width: 130px;
+  }
 }
