@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
-import { Row, Col, Rate } from 'antd';
+import { Row } from 'antd';
 import Service from '../services/ApiService';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Paginations from '../components/Paginations';
 import Loading from '../components/Loading';
+import ListRooms from '../components/ListRooms';
 
 export default function SearchPage() {
   const location = useLocation();
@@ -23,7 +24,6 @@ export default function SearchPage() {
     _limit: 15,
     name_like: queryValue,
   });
-  const numberFormat = new Intl.NumberFormat();
 
   useEffect(() => {
     Service.findByName(filters)
@@ -78,29 +78,7 @@ export default function SearchPage() {
             <div className="listRooms">
               <Row>
                 {searchList.map((data) => (
-                  <Col key={data.id} md={5} xs={24} className="listRooms-col">
-                    <Link to={`/rooms/${data.id}`}>
-                      <div className="listRooms-image">
-                        <img alt="rooms" src={data.imgUrl} />
-                      </div>
-                    </Link>
-                    <div className="listRooms-name">
-                      <p className="room-type">{data.category}</p>
-                      <Link to={`/rooms/${data.id}`}>
-                        <h3>{data.name}</h3>
-                      </Link>
-                      <p>{data.size}</p>
-                      <p className="room-price">
-                        {numberFormat.format(data.price)}
-                        <u>đ</u>/đêm
-                      </p>
-                      <p>{data.address}</p>
-                      <span>
-                        <Rate allowHalf defaultValue={data.rating} disabled />
-                        {data.review_count}
-                      </span>
-                    </div>
-                  </Col>
+                  <ListRooms key={data.id} listRooms={data} />
                 ))}
               </Row>
             </div>

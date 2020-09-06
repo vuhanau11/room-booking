@@ -27,10 +27,7 @@ export default function ShortAbout() {
               <Col md={12} className="is-flex">
                 <Row>
                   <Col md={12} className="store">
-                    <a
-                      href="https://apps.apple.com/us/app/luxstay-%C4%91%E1%BA%B7t-ph%C3%B2ng-homestay/id1339510380"
-                      target="_blank"
-                    >
+                    <a href="https://apps.apple.com/us/app/luxstay-%C4%91%E1%BA%B7t-ph%C3%B2ng-homestay/id1339510380">
                       <img
                         src="https://www.luxstay.com/icons/apple-store.svg"
                         alt="apple"
@@ -44,10 +41,7 @@ export default function ShortAbout() {
                     />
                   </Col>
                   <Col md={12} className="store">
-                    <a
-                      href="https://play.google.com/store/apps/details?id=net.luxstay.android"
-                      target="_blank"
-                    >
+                    <a href="https://play.google.com/store/apps/details?id=net.luxstay.android">
                       <img
                         src="https://www.luxstay.com/icons/google-play.svg"
                         alt=""

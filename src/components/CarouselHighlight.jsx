@@ -3,12 +3,12 @@ import Service from '../services/ApiService';
 import Slider from 'react-slick';
 
 import { settings } from '../models/settingSlick';
-import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import '../styles/CarouselHighlight.css';
+import ListCity from './ListCity';
 
 export default function CarouselHighlight() {
   const [city, setCity] = useState([]);
@@ -36,19 +36,7 @@ export default function CarouselHighlight() {
       ) : (
         <Slider {...settings} className="slider">
           {city.map((data) => (
-            <div key={data.id}>
-              <Link to={`/city/${data.id}`}>
-                <div className="image-item">
-                  <img alt="city" src={data.imgUrl} />
-                </div>
-                <div className="text-item">
-                  <p>{data.title}</p>
-                  <span>
-                    <b>{data.num}</b> chỗ ở
-                  </span>
-                </div>
-              </Link>
-            </div>
+            <ListCity key={data.id} listCity={data} />
           ))}
         </Slider>
       )}

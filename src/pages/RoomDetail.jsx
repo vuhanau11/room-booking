@@ -186,6 +186,7 @@ export default function RoomDetail(props) {
                       className="datepicker"
                       style={{ width: '100%' }}
                       onChange={onChange}
+                      inputReadOnly
                     />
                     <Dropdown
                       overlay={menu}
