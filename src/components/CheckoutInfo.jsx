@@ -1,8 +1,8 @@
-import React from 'react';
-import { Row, Col, Input } from 'antd';
+import React from 'react'
+import { Row, Col, Input } from 'antd'
 
 export default function CheckoutInfo(props) {
-  const { guest, date, roomDetail, fromDateString, toDateString } = props;
+  const { guest, date, roomDetail, fromDateString, toDateString } = props
   return (
     <>
       <div className="checkout-title">
@@ -60,5 +60,5 @@ export default function CheckoutInfo(props) {
         </div>
       </div>
     </>
-  );
+  )
 }

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import 'font-awesome/css/font-awesome.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import 'font-awesome/css/font-awesome.css'
 
 export default function RoomCheckoutInfo(props) {
   const {
@@ -12,7 +12,7 @@ export default function RoomCheckoutInfo(props) {
     toDateString,
     totalPrice,
     totalPriceWithoutAddGuest,
-  } = props;
+  } = props
   return (
     <>
       <div className="checkout-title">
@@ -87,5 +87,5 @@ export default function RoomCheckoutInfo(props) {
         </div>
       </div>
     </>
-  );
+  )
 }

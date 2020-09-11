@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import Service from '../services/ApiService';
-import Slider from 'react-slick';
+import React, { useState, useEffect } from 'react'
+import Service from '../services/ApiService'
+import Slider from 'react-slick'
 
-import { settings } from '../models/settingSlick';
-import Loading from '../components/Loading';
+import { settings } from '../models/settingSlick'
+import Loading from '../components/Loading'
 
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
-import '../styles/CarouselHighlight.css';
-import ListCity from './ListCity';
+import 'slick-carousel/slick/slick-theme.css'
+import 'slick-carousel/slick/slick.css'
+import '../styles/CarouselHighlight.css'
+import ListCity from './ListCity'
 
 export default function CarouselHighlight() {
-  const [city, setCity] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [city, setCity] = useState([])
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     Service.getCity()
       .then((res) => {
-        setCity(res.data);
-        setLoading(false);
+        setCity(res.data)
+        setLoading(false)
       })
       .catch((e) => {
-        console.log(e);
-      });
-  }, []);
+        console.log(e)
+      })
+  }, [])
   return (
     <div className="carousel">
       <div className="carousel-title">
@@ -41,5 +41,5 @@ export default function CarouselHighlight() {
         </Slider>
       )}
     </div>
-  );
+  )
 }

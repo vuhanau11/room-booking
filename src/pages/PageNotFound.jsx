@@ -1,6 +1,6 @@
-import React from 'react';
-import '../styles/NotFound.css';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import '../styles/NotFound.css'
+import { Link } from 'react-router-dom'
 
 export default function PageNotFound() {
   return (
@@ -15,5 +15,5 @@ export default function PageNotFound() {
         </Link>
       </div>
     </div>
-  );
+  )
 }

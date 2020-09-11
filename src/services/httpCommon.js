@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'https://mock-project-rikkei.herokuapp.com',
+  baseURL: process.env.REACT_APP_API,
   headers: {
     'Content-type': 'application/json',
   },
-});
+})

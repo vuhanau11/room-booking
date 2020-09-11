@@ -1,16 +1,16 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import './App.css'
 
-import HomeScreen from './pages/HomeScreen';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Rooms from './pages/Rooms';
-import RoomDetail from './pages/RoomDetail';
-import PageNotFound from './pages/PageNotFound';
-import SimpleReactLightbox from 'simple-react-lightbox';
-import Checkout from './pages/Checkout';
-import SearchPage from './pages/SearchPage';
+import HomeScreen from './pages/HomeScreen'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Rooms from './pages/Rooms'
+import RoomDetail from './pages/RoomDetail'
+import PageNotFound from './pages/PageNotFound'
+import SimpleReactLightbox from 'simple-react-lightbox'
+import Checkout from './pages/Checkout'
+import SearchPage from './pages/SearchPage'
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
         </Switch>
       </SimpleReactLightbox>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

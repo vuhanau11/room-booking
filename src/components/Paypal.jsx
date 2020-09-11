@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Button } from 'antd';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react'
+import { Button } from 'antd'
+import { Link } from 'react-router-dom'
 
 export default function Paypal(props) {
-  const { price, roomDetail, onCheckout, emailInfo } = props;
-  const [paidInfo, setPaidInfo] = useState({});
-  const [paid, setPaid] = useState(false);
-  const paypalRef = useRef();
+  const { price, roomDetail, onCheckout, emailInfo } = props
+  const [paidInfo, setPaidInfo] = useState({})
+  const [paid, setPaid] = useState(false)
+  const paypalRef = useRef()
 
   useEffect(() => {
     window.paypal
@@ -22,20 +22,20 @@ export default function Paypal(props) {
                 },
               },
             ],
-          });
+          })
         },
         onApprove: async (data, actions) => {
-          const order = await actions.order.capture();
-          setPaid(true);
-          setPaidInfo(order, onCheckout(order));
+          const order = await actions.order.capture()
+          setPaid(true)
+          setPaidInfo(order, onCheckout(order))
         },
         onError: (err) => {
-          console.error(err);
+          console.error(err)
         },
       })
-      .render(paypalRef.current);
-  }, [roomDetail.name, price]);
-  console.log(paidInfo);
+      .render(paypalRef.current)
+  }, [roomDetail.name, price])
+  console.log(paidInfo)
 
   if (paid) {
     return (
@@ -50,7 +50,7 @@ export default function Paypal(props) {
           <Button className="next rounded">Quay về trang chủ</Button>
         </Link>
       </div>
-    );
+    )
   }
 
   return (
@@ -60,5 +60,5 @@ export default function Paypal(props) {
       </div>
       <div ref={paypalRef} />
     </div>
-  );
+  )
 }

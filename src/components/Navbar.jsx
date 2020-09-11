@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
-import logo from '../assets/logo.png';
-import logo1 from '../assets/logo1.jpg';
+import React, { useState } from 'react'
+import logo from '../assets/logo.png'
+import logo1 from '../assets/logo1.jpg'
 
-import { Menu, Drawer, Button, Dropdown } from 'antd';
-import { Link } from 'react-router-dom';
-import AuthService from '../services/AuthService';
-import Search from '../components/Search';
-import { CaretDownOutlined } from '@ant-design/icons';
+import { Menu, Drawer, Button, Dropdown } from 'antd'
+import { Link } from 'react-router-dom'
+import AuthService from '../services/AuthService'
+import Search from '../components/Search'
+import { CaretDownOutlined } from '@ant-design/icons'
 
-import '../styles/Navbar.css';
+import '../styles/Navbar.css'
 
 export default function Navbar() {
-  const user = JSON.parse(localStorage.getItem('user'));
-  const token = JSON.parse(localStorage.getItem('token'));
-  const [visible, setVisible] = useState(false);
+  const user = JSON.parse(localStorage.getItem('user'))
+  const token = JSON.parse(localStorage.getItem('token'))
+  const [visible, setVisible] = useState(false)
   const showDrawer = () => {
-    setVisible(true);
-  };
+    setVisible(true)
+  }
 
   const logOut = () => {
-    AuthService.logout();
-    window.location.reload();
-  };
+    AuthService.logout()
+    window.location.reload()
+  }
 
   const onClose = () => {
-    setVisible(false);
-  };
+    setVisible(false)
+  }
 
   const menu = (
     <Menu>
@@ -47,7 +47,7 @@ export default function Navbar() {
         </Link>
       </Menu.Item>
     </Menu>
-  );
+  )
 
   return (
     <nav className="menuBar">
@@ -122,5 +122,5 @@ export default function Navbar() {
         </Drawer>
       </div>
     </nav>
-  );
+  )
 }

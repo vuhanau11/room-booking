@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function ListCity({ listCity }) {
   return (
@@ -16,5 +16,5 @@ export default function ListCity({ listCity }) {
         </div>
       </Link>
     </div>
-  );
+  )
 }

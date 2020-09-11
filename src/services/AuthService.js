@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from 'axios'
 
-const API_URL = 'https://mock-project-rikkei.herokuapp.com/auth/';
+const API_URL = process.env.REACT_APP_API + '/auth/'
 
 const register = (email, phone, lastName, firstName, password) => {
   return axios
@@ -13,11 +13,11 @@ const register = (email, phone, lastName, firstName, password) => {
     })
     .then((response) => {
       if (response.config.data) {
-        localStorage.setItem('user', response.config.data);
+        localStorage.setItem('user', response.config.data)
       }
-      return response.config.data;
-    });
-};
+      return response.config.data
+    })
+}
 
 const login = (email, password) => {
   return axios
@@ -27,18 +27,18 @@ const login = (email, password) => {
     })
     .then((response) => {
       if (response.data.accessToken) {
-        localStorage.setItem('token', JSON.stringify(response.data));
+        localStorage.setItem('token', JSON.stringify(response.data))
       }
-      return response.data;
-    });
-};
+      return response.data
+    })
+}
 
 const logout = () => {
-  localStorage.clear();
-};
+  localStorage.clear()
+}
 
 export default {
   register,
   login,
   logout,
-};
+}

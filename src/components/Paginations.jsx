@@ -1,20 +1,20 @@
-import React from 'react';
-import { Pagination } from 'antd';
-import '../styles/Pagination.css';
+import React from 'react'
+import { Pagination } from 'antd'
+import '../styles/Pagination.css'
 
 export default function Paginations(props) {
-  const { pagination, onPageChange } = props;
-  const { _page, _limit, _totalRow } = pagination;
+  const { pagination, onPageChange } = props
+  const { _page, _limit, _totalRow } = pagination
 
   function onChange(page) {
-    handlePageChange(page);
+    handlePageChange(page)
   }
 
   const handlePageChange = (newPage) => {
     if (onPageChange) {
-      onPageChange(newPage);
+      onPageChange(newPage)
     }
-  };
+  }
   return (
     <div className="pagination">
       <Pagination
@@ -25,5 +25,5 @@ export default function Paginations(props) {
         onChange={onChange}
       />
     </div>
-  );
+  )
 }

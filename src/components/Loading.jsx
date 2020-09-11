@@ -1,13 +1,7 @@
-import React from 'react';
-import { Spin, Empty } from 'antd';
-import '../styles/Loading.css';
+import React from 'react'
+import { Spin } from 'antd'
+import '../styles/Loading.css'
 
 export default function Loading() {
-  return (
-    <div>
-      <Spin size="large">
-        <Empty />
-      </Spin>
-    </div>
-  );
+  return <Spin className="spin" size="large"></Spin>
 }

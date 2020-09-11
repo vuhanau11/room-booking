@@ -1,8 +1,8 @@
-import React from 'react';
-import { Row, Col } from 'antd';
-import '../styles/ShortAbout.css';
-import logo from '../assets/logo-app.jpg';
-import qr from '../assets/qr-code.png';
+import React from 'react'
+import { Row, Col } from 'antd'
+import '../styles/ShortAbout.css'
+import logo from '../assets/logo-app.jpg'
+import qr from '../assets/qr-code.png'
 
 export default function ShortAbout() {
   return (
@@ -59,5 +59,5 @@ export default function ShortAbout() {
         </Col>
       </Row>
     </div>
-  );
+  )
 }

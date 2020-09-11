@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import { Row, Col } from 'antd';
-import { RoomContext } from '../context/RoomContext';
-import avatar from '../assets/avarta.jpg';
+import React, { useContext } from 'react'
+import { Row, Col } from 'antd'
+import { RoomContext } from '../context/RoomContext'
+import avatar from '../assets/avarta.jpg'
 
 export default function RoomDetailContent() {
-  const numberFormat = new Intl.NumberFormat();
-  const roomDetail = useContext(RoomContext);
+  const numberFormat = new Intl.NumberFormat()
+  const roomDetail = useContext(RoomContext)
   return (
     <Col md={16} xs={24} className="room-detail-left">
       <Row>
@@ -91,5 +91,5 @@ export default function RoomDetailContent() {
         </div>
       </div>
     </Col>
-  );
+  )
 }

@@ -1,101 +1,99 @@
-import React, { useState, useEffect } from 'react';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import dayjs from 'dayjs';
-import Slider from 'react-slick';
-import { options } from '../models/lightBox';
-import { SRLWrapper } from 'simple-react-lightbox';
-import { settingLightBox } from '../models/settingSlickLightBox';
-import { Row, Col, DatePicker, Menu, Dropdown, Button } from 'antd';
+import React, { useState, useEffect } from 'react'
+import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
+import dayjs from 'dayjs'
+import Slider from 'react-slick'
+import { options } from '../models/lightBox'
+import { SRLWrapper } from 'simple-react-lightbox'
+import { settingLightBox } from '../models/settingSlickLightBox'
+import { Row, Col, DatePicker, Menu, Dropdown, Button } from 'antd'
 import {
   UserOutlined,
   PlusCircleOutlined,
   MinusCircleOutlined,
-} from '@ant-design/icons';
-import { RoomProvider } from '../context/RoomContext';
+} from '@ant-design/icons'
+import { RoomProvider } from '../context/RoomContext'
 
-import 'font-awesome/css/font-awesome.css';
-import '../styles/RoomDetail.css';
+import 'font-awesome/css/font-awesome.css'
+import '../styles/RoomDetail.css'
 
-import Service from '../services/ApiService';
-import Loading from '../components/Loading';
-import RoomDetailContent from '../components/RoomDetailContent';
+import Service from '../services/ApiService'
+import Loading from '../components/Loading'
+import RoomDetailContent from '../components/RoomDetailContent'
 
 export default function RoomDetail(props) {
-  const [roomDetail, setRoomDetail] = useState({});
-  const [listImage, setListImage] = useState([]);
-  const [dateRange, setDateRange] = useState({ fromDate: null, toDate: null });
-  const [date, setDate] = useState();
-  const [loading, setLoading] = useState(true);
-  const [currentGuest, setCurrentGuest] = useState(1);
-  const numberFormat = new Intl.NumberFormat();
+  const [roomDetail, setRoomDetail] = useState({})
+  const [listImage, setListImage] = useState([])
+  const [dateRange, setDateRange] = useState({ fromDate: null, toDate: null })
+  const [date, setDate] = useState()
+  const [loading, setLoading] = useState(true)
+  const [currentGuest, setCurrentGuest] = useState(1)
+  const numberFormat = new Intl.NumberFormat()
 
-  const fromDate = new Date(dateRange.fromDate);
-  const toDate = new Date(dateRange.toDate);
-  const fromDateUTC = fromDate.toUTCString();
-  const toDateUTC = toDate.toUTCString();
-  const fromDateObj = dayjs(fromDate);
-  const toDateObj = dayjs(toDate);
-  const fromDateString = fromDateObj.format('DD/MM/YYYY');
-  const toDateString = toDateObj.format('DD/MM/YYYY');
+  const fromDate = new Date(dateRange.fromDate)
+  const toDate = new Date(dateRange.toDate)
+  const fromDateUTC = fromDate.toUTCString()
+  const toDateUTC = toDate.toUTCString()
+  const fromDateObj = dayjs(fromDate)
+  const toDateObj = dayjs(toDate)
+  const fromDateString = fromDateObj.format('DD/MM/YYYY')
+  const toDateString = toDateObj.format('DD/MM/YYYY')
   const totalPrice = numberFormat.format(
     roomDetail.price * date + roomDetail.additional_guests
-  );
+  )
   const totalPriceNumber =
-    roomDetail.price * date + roomDetail.additional_guests;
+    roomDetail.price * date + roomDetail.additional_guests
   const totalPriceInUSD = (
     (roomDetail.price * date + roomDetail.additional_guests) /
     23270
-  ).toFixed(2);
-  const totalPriceWithoutAddGuest = numberFormat.format(
-    roomDetail.price * date
-  );
-  const totalPriceWithoutAddGuestNumber = roomDetail.price * date;
+  ).toFixed(2)
+  const totalPriceWithoutAddGuest = numberFormat.format(roomDetail.price * date)
+  const totalPriceWithoutAddGuestNumber = roomDetail.price * date
   const totalPriceWithoutAddGuestInUSD = (
     (roomDetail.price * date) /
     23270
-  ).toFixed(2);
-  const additionalGuests = numberFormat.format(roomDetail.additional_guests);
-  const roomPrice = numberFormat.format(roomDetail.price);
+  ).toFixed(2)
+  const additionalGuests = numberFormat.format(roomDetail.additional_guests)
+  const roomPrice = numberFormat.format(roomDetail.price)
 
   const getRoomId = (roomId) => {
     Service.getRoomById(roomId)
       .then((res) => {
-        setRoomDetail(res.data);
+        setRoomDetail(res.data)
       })
       .catch((e) => {
-        console.log(e);
-      });
-  };
+        console.log(e)
+      })
+  }
 
   const getListImage = (imageId) => {
     Service.getListImage(imageId)
       .then((res) => {
-        setListImage(res.data);
-        setLoading(false);
+        setListImage(res.data)
+        setLoading(false)
       })
       .catch((e) => {
-        console.log(e);
-      });
-  };
+        console.log(e)
+      })
+  }
 
   useEffect(() => {
-    getRoomId(props.match.params.id);
-    getListImage(props.match.params.id);
-  }, [props.match.params.id]);
+    getRoomId(props.match.params.id)
+    getListImage(props.match.params.id)
+  }, [props.match.params.id])
 
   const onChange = (value) => {
     if (value) {
-      setDateRange({ fromDate: value[0], toDate: value[1] });
-      setDate((value[1] - value[0]) / (1000 * 60 * 60 * 24));
+      setDateRange({ fromDate: value[0], toDate: value[1] })
+      setDate((value[1] - value[0]) / (1000 * 60 * 60 * 24))
     }
-  };
+  }
 
   function disabledDate(current) {
     return (
       (current && current < dayjs().endOf('day')) ||
       current > dayjs().add(91, 'day')
-    );
+    )
   }
 
   const menu = (
@@ -131,7 +129,7 @@ export default function RoomDetail(props) {
         </button>
       </div>
     </Menu>
-  );
+  )
 
   return (
     <>
@@ -265,7 +263,7 @@ export default function RoomDetail(props) {
                               fromDateUTC,
                               toDateUTC,
                             }
-                          );
+                          )
                         }}
                       >
                         Đặt ngay
@@ -288,5 +286,5 @@ export default function RoomDetail(props) {
         </div>
       </RoomProvider>
     </>
-  );
+  )
 }

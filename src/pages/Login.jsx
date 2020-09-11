@@ -1,43 +1,43 @@
-import React, { useState } from 'react';
-import RegisScreen from '../components/RegisScreen';
-import Footer from '../components/Footer';
-import Toast from '../components/Toast';
-import Navbar from '../components/Navbar';
-import { Link } from 'react-router-dom';
-import { Form, Input, Button } from 'antd';
-import { MailOutlined, LockOutlined } from '@ant-design/icons';
-import { Row, Col } from 'antd';
-import { toast } from 'react-toastify';
+import React, { useState } from 'react'
+import RegisScreen from '../components/RegisScreen'
+import Footer from '../components/Footer'
+import Toast from '../components/Toast'
+import Navbar from '../components/Navbar'
+import { Link } from 'react-router-dom'
+import { Form, Input, Button } from 'antd'
+import { MailOutlined, LockOutlined } from '@ant-design/icons'
+import { Row, Col } from 'antd'
+import { toast } from 'react-toastify'
 
-import '../styles/Login.css';
+import '../styles/Login.css'
 
-import AuthService from '../services/AuthService';
+import AuthService from '../services/AuthService'
 
 export default function Login(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const onChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
-  };
+    const email = e.target.value
+    setEmail(email)
+  }
 
   const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
+    const password = e.target.value
+    setPassword(password)
+  }
 
   const handleLogin = () => {
     AuthService.login(email, password).then(
       () => {
-        props.history.push('/home');
-        window.location.reload();
+        props.history.push('/home')
+        window.location.reload()
       },
       (err) => {
-        toast.error(err.response.data.message);
+        toast.error(err.response.data.message)
       }
-    );
-  };
+    )
+  }
 
   return (
     <>
@@ -143,5 +143,5 @@ export default function Login(props) {
         </div>
       </div>
     </>
-  );
+  )
 }

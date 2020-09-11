@@ -1,49 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import { AutoComplete, Input } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
-import { useHistory } from 'react-router-dom';
-import Service from '../services/ApiService';
+import React, { useState, useEffect } from 'react'
+import { AutoComplete, Input } from 'antd'
+import { SearchOutlined } from '@ant-design/icons'
+import { useHistory } from 'react-router-dom'
+import Service from '../services/ApiService'
 
-import '../styles/Search.css';
+import '../styles/Search.css'
 
 export default function Search() {
-  const history = useHistory();
-  const { Search } = Input;
-  const [listRooms, setListRooms] = useState([]);
-  const [options, setOptions] = useState([]);
+  const history = useHistory()
+  const { Search } = Input
+  const [listRooms, setListRooms] = useState([])
+  const [options, setOptions] = useState([])
 
   useEffect(() => {
     Service.getAllRooms()
       .then((res) => {
-        const { data } = res;
+        const { data } = res
         const listSearch = data.map((index) => ({
           value: index.name,
           key: index.id,
-        }));
-        setListRooms(listSearch);
+        }))
+        setListRooms(listSearch)
       })
       .catch((e) => {
-        console.log(e);
-      });
-  }, []);
+        console.log(e)
+      })
+  }, [])
   const onSearch = (value) => {
-    history.push(`/search?name=${value}`);
-  };
+    history.push(`/search?name=${value}`)
+  }
 
   const onSelect = (key) => {
-    history.push(`/rooms/${key}`);
-  };
+    history.push(`/rooms/${key}`)
+  }
 
   const onSearchOptions = (value) => {
     if (value) {
       const list = listRooms.filter((index) => {
-        return index.value.toUpperCase().search(value.toUpperCase()) !== -1;
-      });
-      setOptions(list);
+        return index.value.toUpperCase().search(value.toUpperCase()) !== -1
+      })
+      setOptions(list)
     } else {
-      setOptions([]);
+      setOptions([])
     }
-  };
+  }
 
   return (
     <AutoComplete
@@ -53,7 +53,7 @@ export default function Search() {
       options={options}
       onSearch={(value) => onSearchOptions(value)}
       onSelect={(value, option) => {
-        onSelect(option.key);
+        onSelect(option.key)
       }}
     >
       <Search
@@ -64,5 +64,5 @@ export default function Search() {
         onSearch={(value) => onSearch(value)}
       />
     </AutoComplete>
-  );
+  )
 }

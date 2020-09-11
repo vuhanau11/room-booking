@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/Footer.css';
+import React from 'react'
+import '../styles/Footer.css'
 
 export default function Footer() {
   return (
@@ -8,5 +8,5 @@ export default function Footer() {
       vi sao chép đều là phạm pháp nếu không có sự cho phép bằng văn bản của
       chúng tôi.
     </footer>
-  );
+  )
 }

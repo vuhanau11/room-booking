@@ -1,12 +1,12 @@
-import React from 'react';
-import coin from '../assets/coin.jpg';
-import top from '../assets/top.jpg';
-import money from '../assets/money.jpg';
-import bag from '../assets/bag.jpg';
+import React from 'react'
+import coin from '../assets/coin.jpg'
+import top from '../assets/top.jpg'
+import money from '../assets/money.jpg'
+import bag from '../assets/bag.jpg'
 
-import { Row, Col } from 'antd';
+import { Row, Col } from 'antd'
 
-import '../styles/RegisScreen.css';
+import '../styles/RegisScreen.css'
 
 export default function RegisScreen() {
   return (
@@ -57,5 +57,5 @@ export default function RegisScreen() {
         </Col>
       </Row>
     </div>
-  );
+  )
 }

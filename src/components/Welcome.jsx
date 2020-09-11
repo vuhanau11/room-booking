@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Welcome() {
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem('user'))
   return (
     <div className="welcome">
       <div className="welcome-text">
@@ -37,5 +37,5 @@ export default function Welcome() {
         )}
       </div>
     </div>
-  );
+  )
 }

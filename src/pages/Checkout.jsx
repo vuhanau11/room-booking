@@ -1,42 +1,42 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Row, Col, Form, Input } from 'antd';
-import { layout } from '../models/layout';
-import logo1 from '../assets/logo-app.jpg';
-import '../styles/Checkout.css';
-import 'antd/dist/antd.css';
-import { Steps, Button } from 'antd';
-import Footer from '../components/Footer';
-import CheckoutInfo from '../components/CheckoutInfo';
-import RoomCheckoutInfo from '../components/RoomCheckoutInfo';
-import Paypal from '../components/Paypal';
-import Service from '../services/ApiService';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Row, Col, Form, Input } from 'antd'
+import { layout } from '../models/layout'
+import logo1 from '../assets/logo-app.jpg'
+import '../styles/Checkout.css'
+import 'antd/dist/antd.css'
+import { Steps, Button } from 'antd'
+import Footer from '../components/Footer'
+import CheckoutInfo from '../components/CheckoutInfo'
+import RoomCheckoutInfo from '../components/RoomCheckoutInfo'
+import Paypal from '../components/Paypal'
+import Service from '../services/ApiService'
 
 export default function Checkout(props) {
   const initialState = {
     name: '',
     phone: '',
     email: '',
-  };
+  }
   const price =
     props.location.state.currentGuest > props.location.state.roomDetail.guests
       ? props.location.state.totalPriceNumber
-      : props.location.state.totalPriceWithoutAddGuestNumber;
+      : props.location.state.totalPriceWithoutAddGuestNumber
   const priceInUSD =
     props.location.state.currentGuest > props.location.state.roomDetail.guests
       ? props.location.state.totalPriceInUSD
-      : props.location.state.totalPriceWithoutAddGuestInUSD;
-  const [current, setCurrent] = useState(0);
-  const [checkoutInfo, setCheckoutInfo] = useState(initialState);
+      : props.location.state.totalPriceWithoutAddGuestInUSD
+  const [current, setCurrent] = useState(0)
+  const [checkoutInfo, setCheckoutInfo] = useState(initialState)
 
   const next = () => {
-    setCurrent(current + 1);
-  };
+    setCurrent(current + 1)
+  }
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setCheckoutInfo({ ...checkoutInfo, [name]: value });
-  };
+    const { name, value } = event.target
+    setCheckoutInfo({ ...checkoutInfo, [name]: value })
+  }
 
   const saveCheckoutInfo = (value) => {
     const data = {
@@ -56,7 +56,7 @@ export default function Checkout(props) {
       status: value.status,
       payerId: value.payer.payer_id,
       payerEmail: value.payer.email_address,
-    };
+    }
 
     Service.checkout(data)
       .then((response) => {
@@ -77,15 +77,15 @@ export default function Checkout(props) {
           status: response.data.status,
           payerId: response.data.payer_id,
           payerEmail: response.data.email_address,
-        });
-        console.log(response.data);
+        })
+        console.log(response.data)
       })
       .catch((e) => {
-        console.log(e);
-      });
-  };
+        console.log(e)
+      })
+  }
 
-  const { Step } = Steps;
+  const { Step } = Steps
   const steps = [
     {
       title: 'Thông tin đặt chỗ',
@@ -247,7 +247,7 @@ export default function Checkout(props) {
         </>
       ),
     },
-  ];
+  ]
 
   return (
     <>
@@ -277,5 +277,5 @@ export default function Checkout(props) {
         </div>
       </div>
     </>
-  );
+  )
 }

@@ -1,63 +1,63 @@
-import React, { useState } from 'react';
-import Footer from '../components/Footer';
-import RegisScreen from '../components/RegisScreen';
-import Toast from '../components/Toast';
-import Navbar from '../components/Navbar';
-import { Link } from 'react-router-dom';
-import { Form, Input, Button } from 'antd';
-import { Row, Col } from 'antd';
-import { MailOutlined, LockOutlined } from '@ant-design/icons';
-import { layout } from '../models/layout';
-import { toast } from 'react-toastify';
+import React, { useState } from 'react'
+import Footer from '../components/Footer'
+import RegisScreen from '../components/RegisScreen'
+import Toast from '../components/Toast'
+import Navbar from '../components/Navbar'
+import { Link } from 'react-router-dom'
+import { Form, Input, Button } from 'antd'
+import { Row, Col } from 'antd'
+import { MailOutlined, LockOutlined } from '@ant-design/icons'
+import { layout } from '../models/layout'
+import { toast } from 'react-toastify'
 
-import '../styles/RegisScreen.css';
-import '../styles/Register.css';
+import '../styles/RegisScreen.css'
+import '../styles/Register.css'
 
-import AuthService from '../services/AuthService';
+import AuthService from '../services/AuthService'
 
 export default function Register(props) {
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [password, setPassword] = useState('')
 
   const onChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
-  };
+    const email = e.target.value
+    setEmail(email)
+  }
   const onChangePhone = (e) => {
-    const phone = e.target.value;
-    setPhone(phone);
-  };
+    const phone = e.target.value
+    setPhone(phone)
+  }
   const onChangeLastName = (e) => {
-    const lastName = e.target.value;
-    setLastName(lastName);
-  };
+    const lastName = e.target.value
+    setLastName(lastName)
+  }
   const onChangeFirstName = (e) => {
-    const firstName = e.target.value;
-    setFirstName(firstName);
-  };
+    const firstName = e.target.value
+    setFirstName(firstName)
+  }
   const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
+    const password = e.target.value
+    setPassword(password)
+  }
 
   const handleRegister = () => {
     AuthService.register(email, phone, lastName, firstName, password).then(
       () => {
         setTimeout(() => {
-          props.history.push('/login');
-        }, 2000);
+          props.history.push('/login')
+        }, 2000)
         toast.success('Đăng ký thành công! Vui lòng đăng nhập', {
           autoClose: 1500,
-        });
+        })
       },
       (err) => {
-        toast.error(err.response.data.message);
+        toast.error(err.response.data.message)
       }
-    );
-  };
+    )
+  }
   return (
     <>
       <Navbar />
@@ -204,11 +204,11 @@ export default function Register(props) {
                         ({ getFieldValue }) => ({
                           validator(rule, value) {
                             if (!value || getFieldValue('password') === value) {
-                              return Promise.resolve();
+                              return Promise.resolve()
                             }
                             return Promise.reject(
                               'Mật khẩu xác nhận phải trùng với mật khẩu vừa tạo'
-                            );
+                            )
                           },
                         }),
                       ]}
@@ -248,5 +248,5 @@ export default function Register(props) {
         </div>
       </div>
     </>
-  );
+  )
 }

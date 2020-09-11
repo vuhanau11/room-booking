@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext } from 'react'
 
-export const RoomContext = createContext();
-export const RoomProvider = RoomContext.Provider;
+export const RoomContext = createContext()
+export const RoomProvider = RoomContext.Provider
