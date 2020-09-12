@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import dayjs from 'dayjs'
 import Slider from 'react-slick'
+import { useQuery } from 'react-query'
 import { options } from '../models/lightBox'
 import { SRLWrapper } from 'simple-react-lightbox'
 import { settingLightBox } from '../models/settingSlickLightBox'
@@ -12,7 +13,6 @@ import {
   PlusCircleOutlined,
   MinusCircleOutlined,
 } from '@ant-design/icons'
-import { RoomProvider } from '../context/RoomContext'
 
 import 'font-awesome/css/font-awesome.css'
 import '../styles/RoomDetail.css'
@@ -22,12 +22,17 @@ import Loading from '../components/Loading'
 import RoomDetailContent from '../components/RoomDetailContent'
 
 export default function RoomDetail(props) {
-  const [roomDetail, setRoomDetail] = useState({})
-  const [listImage, setListImage] = useState([])
+  const roomId = props.match.params.id
+  const { status, data } = useQuery(`room-${roomId}`, () =>
+    Service.getRoomById(roomId)
+  )
   const [dateRange, setDateRange] = useState({ fromDate: null, toDate: null })
   const [date, setDate] = useState()
-  const [loading, setLoading] = useState(true)
   const [currentGuest, setCurrentGuest] = useState(1)
+
+  if (status === 'loading') return <Loading />
+  if (status === 'error') return <p>Error :(</p>
+  const roomDetail = data.data
   const numberFormat = new Intl.NumberFormat()
 
   const fromDate = new Date(dateRange.fromDate)
@@ -55,32 +60,6 @@ export default function RoomDetail(props) {
   ).toFixed(2)
   const additionalGuests = numberFormat.format(roomDetail.additional_guests)
   const roomPrice = numberFormat.format(roomDetail.price)
-
-  const getRoomId = (roomId) => {
-    Service.getRoomById(roomId)
-      .then((res) => {
-        setRoomDetail(res.data)
-      })
-      .catch((e) => {
-        console.log(e)
-      })
-  }
-
-  const getListImage = (imageId) => {
-    Service.getListImage(imageId)
-      .then((res) => {
-        setListImage(res.data)
-        setLoading(false)
-      })
-      .catch((e) => {
-        console.log(e)
-      })
-  }
-
-  useEffect(() => {
-    getRoomId(props.match.params.id)
-    getListImage(props.match.params.id)
-  }, [props.match.params.id])
 
   const onChange = (value) => {
     if (value) {
@@ -134,32 +113,94 @@ export default function RoomDetail(props) {
   return (
     <>
       <Navbar />
-      <RoomProvider value={roomDetail}>
-        <div className="room-detail">
-          <div className="light-box">
-            {loading ? (
-              <Loading />
-            ) : (
-              <SRLWrapper options={options}>
-                <Slider {...settingLightBox} className="slider-light-box">
-                  {listImage.map((data) => (
-                    <div key={data.id} className="listRooms-image">
-                      <img alt="rooms" src={data.Url} />
-                    </div>
-                  ))}
-                </Slider>
-              </SRLWrapper>
-            )}
-          </div>
-          <div className="room-detail-body">
-            <Row>
-              <RoomDetailContent />
-              <Col md={8} xs={24} className="room-detail-right">
-                <div className="room-sidebar">
-                  <div className="room-sidebar-content">
-                    <div className="room-sidebar-pricing">
-                      {date ? (
-                        <span className="bold">
+      <div className="room-detail">
+        <div className="light-box">
+          <SRLWrapper options={options}>
+            <Slider {...settingLightBox} className="slider-light-box">
+              {roomDetail.listImgUrl.map((data) => (
+                <div key={data.id} className="listRooms-image">
+                  <img alt="rooms" src={data.Url} />
+                </div>
+              ))}
+            </Slider>
+          </SRLWrapper>
+        </div>
+        <div className="room-detail-body">
+          <Row>
+            <RoomDetailContent roomInfo={roomDetail} />
+            <Col md={8} xs={24} className="room-detail-right">
+              <div className="room-sidebar">
+                <div className="room-sidebar-content">
+                  <div className="room-sidebar-pricing">
+                    {date ? (
+                      <span className="bold">
+                        {currentGuest > roomDetail.guests ? (
+                          <>{totalPrice}</>
+                        ) : (
+                          <>{totalPriceWithoutAddGuest}</>
+                        )}
+                        <u>đ</u>
+                      </span>
+                    ) : (
+                      <span className="bold">
+                        {roomPrice}
+                        <u>đ</u>
+                      </span>
+                    )}
+                    <span className="small"> /{date} đêm</span>
+                  </div>
+                  <DatePicker.RangePicker
+                    value={[dateRange.fromDate, dateRange.toDate]}
+                    size="large"
+                    disabledDate={disabledDate}
+                    placeholder={['dd/mm/yyyy', 'dd/mm/yyyy']}
+                    format="DD/MM/YYYY"
+                    className="datepicker"
+                    style={{ width: '100%' }}
+                    onChange={onChange}
+                    inputReadOnly
+                  />
+                  <Dropdown
+                    overlay={menu}
+                    trigger={['click']}
+                    placement="bottomLeft"
+                  >
+                    <Button
+                      className="guest"
+                      style={{ width: '100%', textAlign: 'left' }}
+                      icon={<UserOutlined />}
+                    >
+                      {currentGuest > 0 ? (
+                        <span>{currentGuest} khách</span>
+                      ) : (
+                        <span>Số khách</span>
+                      )}
+                    </Button>
+                  </Dropdown>
+                  {date ? (
+                    <div className="room-sidebar-detail">
+                      <div className="is-flex">
+                        <span className="flex-title">Giá thuê {date} đêm</span>
+                        <span className="flex-price">
+                          {totalPriceWithoutAddGuest}
+                          <u>đ</u>
+                        </span>
+                      </div>
+                      {currentGuest > roomDetail.guests ? (
+                        <div className="is-flex">
+                          <span className="flex-title">
+                            Phí khách tăng thêm
+                          </span>
+                          <span className="flex-price">
+                            {additionalGuests}
+                            <u>đ</u>
+                          </span>
+                        </div>
+                      ) : null}
+                      <hr style={{ margin: '10px 0' }} />
+                      <div className="is-flex">
+                        <span className="flex-title count">Tổng tiền</span>
+                        <span className="flex-price count">
                           {currentGuest > roomDetail.guests ? (
                             <>{totalPrice}</>
                           ) : (
@@ -167,124 +208,54 @@ export default function RoomDetail(props) {
                           )}
                           <u>đ</u>
                         </span>
-                      ) : (
-                        <span className="bold">
-                          {roomPrice}
-                          <u>đ</u>
-                        </span>
-                      )}
-                      <span className="small"> /{date} đêm</span>
-                    </div>
-                    <DatePicker.RangePicker
-                      value={[dateRange.fromDate, dateRange.toDate]}
-                      size="large"
-                      disabledDate={disabledDate}
-                      placeholder={['dd/mm/yyyy', 'dd/mm/yyyy']}
-                      format="DD/MM/YYYY"
-                      className="datepicker"
-                      style={{ width: '100%' }}
-                      onChange={onChange}
-                      inputReadOnly
-                    />
-                    <Dropdown
-                      overlay={menu}
-                      trigger={['click']}
-                      placement="bottomLeft"
-                    >
-                      <Button
-                        className="guest"
-                        style={{ width: '100%', textAlign: 'left' }}
-                        icon={<UserOutlined />}
-                      >
-                        {currentGuest > 0 ? (
-                          <span>{currentGuest} khách</span>
-                        ) : (
-                          <span>Số khách</span>
-                        )}
-                      </Button>
-                    </Dropdown>
-                    {date ? (
-                      <div className="room-sidebar-detail">
-                        <div className="is-flex">
-                          <span className="flex-title">
-                            Giá thuê {date} đêm
-                          </span>
-                          <span className="flex-price">
-                            {totalPriceWithoutAddGuest}
-                            <u>đ</u>
-                          </span>
-                        </div>
-                        {currentGuest > roomDetail.guests ? (
-                          <div className="is-flex">
-                            <span className="flex-title">
-                              Phí khách tăng thêm
-                            </span>
-                            <span className="flex-price">
-                              {additionalGuests}
-                              <u>đ</u>
-                            </span>
-                          </div>
-                        ) : null}
-                        <hr style={{ margin: '10px 0' }} />
-                        <div className="is-flex">
-                          <span className="flex-title count">Tổng tiền</span>
-                          <span className="flex-price count">
-                            {currentGuest > roomDetail.guests ? (
-                              <>{totalPrice}</>
-                            ) : (
-                              <>{totalPriceWithoutAddGuest}</>
-                            )}
-                            <u>đ</u>
-                          </span>
-                        </div>
                       </div>
-                    ) : null}
-                    {date ? (
-                      <button
-                        type="button"
-                        className="book-room"
-                        onClick={() => {
-                          props.history.push(
-                            `/checkout?id=${props.match.params.id}&fromDate=${fromDateString}&toDate=${toDateString}&guest=${currentGuest}`,
-                            {
-                              roomDetail,
-                              fromDateString,
-                              toDateString,
-                              currentGuest,
-                              date,
-                              totalPrice,
-                              totalPriceNumber,
-                              totalPriceWithoutAddGuest,
-                              totalPriceWithoutAddGuestNumber,
-                              additionalGuests,
-                              roomPrice,
-                              totalPriceInUSD,
-                              totalPriceWithoutAddGuestInUSD,
-                              fromDateUTC,
-                              toDateUTC,
-                            }
-                          )
-                        }}
-                      >
-                        Đặt ngay
-                      </button>
-                    ) : (
-                      <button
-                        type="button"
-                        className="book-room disabled-button"
-                        disabled
-                      >
-                        Đặt ngay
-                      </button>
-                    )}
-                  </div>
+                    </div>
+                  ) : null}
+                  {date ? (
+                    <button
+                      type="button"
+                      className="book-room"
+                      onClick={() => {
+                        props.history.push(
+                          `/checkout?id=${props.match.params.id}&fromDate=${fromDateString}&toDate=${toDateString}&guest=${currentGuest}`,
+                          {
+                            roomDetail,
+                            fromDateString,
+                            toDateString,
+                            currentGuest,
+                            date,
+                            totalPrice,
+                            totalPriceNumber,
+                            totalPriceWithoutAddGuest,
+                            totalPriceWithoutAddGuestNumber,
+                            additionalGuests,
+                            roomPrice,
+                            totalPriceInUSD,
+                            totalPriceWithoutAddGuestInUSD,
+                            fromDateUTC,
+                            toDateUTC,
+                          }
+                        )
+                      }}
+                    >
+                      Đặt ngay
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="book-room disabled-button"
+                      disabled
+                    >
+                      Đặt ngay
+                    </button>
+                  )}
                 </div>
-              </Col>
-            </Row>
-          </div>
-          <Footer />
+              </div>
+            </Col>
+          </Row>
         </div>
-      </RoomProvider>
+        <Footer />
+      </div>
     </>
   )
 }

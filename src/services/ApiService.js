@@ -20,10 +20,6 @@ const getRoomById = (roomId) => {
   return http.get(`/rooms/${roomId}`)
 }
 
-const getListImage = (roomId) => {
-  return http.get(`/rooms/${roomId}/listImgUrl`)
-}
-
 const findByName = (params) => {
   const queryParams = queryString.stringify(params)
   return http.get(`/rooms?${queryParams}`)
@@ -38,7 +34,6 @@ export default {
   getCityById,
   getRooms,
   getRoomById,
-  getListImage,
   findByName,
   checkout,
   getAllRooms,
