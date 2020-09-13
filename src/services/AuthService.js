@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = process.env.REACT_APP_API_AUTHEN + 'auth/'
+const API_URL = 'https://room-booking-rikkei.herokuapp.com/auth/'
 
 const register = (email, phone, lastName, firstName, password) => {
   return axios

@@ -20,6 +20,7 @@ import '../styles/RoomDetail.css'
 import Service from '../services/ApiService'
 import Loading from '../components/Loading'
 import RoomDetailContent from '../components/RoomDetailContent'
+import NotFound from '../components/NotFound'
 
 export default function RoomDetail(props) {
   const roomId = props.match.params.id
@@ -31,7 +32,7 @@ export default function RoomDetail(props) {
   const [currentGuest, setCurrentGuest] = useState(1)
 
   if (status === 'loading') return <Loading />
-  if (status === 'error') return <p>Error :(</p>
+  if (status === 'error') return <NotFound />
   const roomDetail = data.data
   const numberFormat = new Intl.NumberFormat()
 
