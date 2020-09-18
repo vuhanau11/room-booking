@@ -1,45 +1,35 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Service from '../services/ApiService'
 import Navbar from '../components/Navbar'
 
 import { Row } from 'antd'
+import { useQuery } from 'react-query'
 import Loading from '../components/Loading'
 
 import '../styles/Rooms.css'
 import 'antd/dist/antd.css'
 import Footer from '../components/Footer'
 import ListRooms from '../components/ListRooms'
+import NotFound from '../components/NotFound'
 
 export default function Rooms(props) {
-  const [cityId, setCityId] = useState({})
-  const [rooms, setRooms] = useState([])
-  const [loading, setLoading] = useState(true)
+  const id = props.match.params.id
 
-  const getCityId = (cityId) => {
-    Service.getCityById(cityId)
-      .then((res) => {
-        setCityId(res.data)
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+  const getCityId = async () => {
+    const cityIdData = await Service.getCityById(id)
+    return cityIdData
+  }
+  const getRooms = async () => {
+    const roomsData = await Service.getRooms(id)
+    return roomsData
   }
 
-  const getRooms = (roomId) => {
-    Service.getRooms(roomId)
-      .then((res) => {
-        setRooms(res.data)
-        setLoading(false)
-      })
-      .catch((e) => {
-        console.log(e)
-      })
-  }
-
-  useEffect(() => {
-    getCityId(props.match.params.id)
-    getRooms(props.match.params.id)
-  }, [props.match.params.id])
+  const { status: cityStatus, data: cityData } = useQuery('cityId', getCityId)
+  const { status: roomsStatus, data: roomsData } = useQuery('rooms', getRooms)
+  if (cityStatus === 'loading' || roomsStatus === 'loading') return <Loading />
+  if (cityStatus === 'error' || roomsStatus === 'error') return <NotFound />
+  const cityId = cityData.data
+  const rooms = roomsData.data
 
   return (
     <>
@@ -49,17 +39,13 @@ export default function Rooms(props) {
           <h2>
             {cityId.num} homestay tại {cityId.title}
           </h2>
-          {loading ? (
-            <Loading />
-          ) : (
-            <div className="listRooms">
-              <Row>
-                {rooms.map((data) => (
-                  <ListRooms key={data.id} listRooms={data} />
-                ))}
-              </Row>
-            </div>
-          )}
+          <div className="listRooms">
+            <Row>
+              {rooms.map((data) => (
+                <ListRooms key={data.id} listRooms={data} />
+              ))}
+            </Row>
+          </div>
         </div>
         <Footer />
       </div>

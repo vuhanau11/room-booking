@@ -24,9 +24,11 @@ import NotFound from '../components/NotFound'
 
 export default function RoomDetail(props) {
   const roomId = props.match.params.id
-  const { status, data } = useQuery(`room-${roomId}`, () =>
-    Service.getRoomById(roomId)
-  )
+  const getRoomId = async () => {
+    const roomIdData = await Service.getRoomById(roomId)
+    return roomIdData
+  }
+  const { status, data } = useQuery(`room-${roomId}`, getRoomId)
   const [dateRange, setDateRange] = useState({ fromDate: null, toDate: null })
   const [date, setDate] = useState()
   const [currentGuest, setCurrentGuest] = useState(1)
